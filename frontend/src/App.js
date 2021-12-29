@@ -1,13 +1,15 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './components/pages/Home';
-import Login from './components/pages/Login';
+import LoginSignUp from './components/pages/LoginSignUp';
 import Profile from './components/pages/Profile';
 import Navbar from "./components/navbar/Navbar"
+import "./scss/index.scss"
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <LoginSignUp/>
+      {/* <BrowserRouter>
         <Routes >
           <Route path="/" element={<Navbar/>}>
             <Route path="home" element={<Home/>}/>
@@ -15,7 +17,7 @@ function App() {
             <Route path="profile" element={<Profile/>}/>
           </Route>
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </div>
   );
 }
