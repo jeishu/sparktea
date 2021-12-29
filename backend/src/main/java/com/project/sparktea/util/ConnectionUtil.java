@@ -25,5 +25,14 @@ public class ConnectionUtil {
 		//loggy.info("Connection established to connect to the Database.");
 		return DriverManager.getConnection(url, username, password);
 	} 
+	
+	
+	
+	/*public static void main(String[] args) throws SQLException {
+		
 
+	Connection conn = getConnection();
+		System.out.println("yay");
+	}
+*/
 }
