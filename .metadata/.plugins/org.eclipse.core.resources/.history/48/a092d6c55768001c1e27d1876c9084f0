@@ -1,0 +1,5 @@
+package com.project.sparktea;
+
+public class HibernateUtil {
+
+}
