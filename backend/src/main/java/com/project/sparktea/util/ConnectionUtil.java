@@ -4,10 +4,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import org.apache.log4j.Logger;
+
 //import org.apache.log4j.Logger;
 
 public class ConnectionUtil {
-	//private static final Logger loggy = Logger.getLogger(ConnectionUtil.class);
+	private static final Logger loggy = Logger.getLogger(ConnectionUtil.class);
 	
 	
 	//CONNECT TO THE DATABASE BY USING URL, USERNAME, PASSWORD
@@ -22,7 +24,7 @@ public class ConnectionUtil {
 	 *
 	 */
 	public static Connection getConnection() throws SQLException{
-		//loggy.info("Connection established to connect to the Database.");
+		loggy.info("Connection established to connect to the Database.");
 		return DriverManager.getConnection(url, username, password);
 	} 
 
