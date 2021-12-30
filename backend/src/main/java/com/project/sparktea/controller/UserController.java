@@ -1,13 +1,55 @@
 package com.project.sparktea.controller;
 
 import java.util.List;
-import com.project.sparktea.dao.UserDaoHibernate;
-import com.project.sparktea.model.User;
 
 
+import com.project.sparktea.model.UserData;
+import com.project.sparktea.service.UserService;
+
+@RestController
+@RequestMapping("/users")
 public class UserController {
+	
+	@Resource(name="userService")
+	private UserService userService;
+	
+	@GetMapping
+	public List<UserData> getUsers(){
+		return userService.getAllUsers();
+	}
+	
+	@GetMapping("/user/{id}")
+	public UserData getUser(@PathVariable Integer id) {
+		return userService.getUserById(id);
+	}
+	
+	@PostMapping("/user")
+	public UserData saveUser(final @RequestBody UserData userData) {
+		return userService.saveUser(userData);
+	}
+	
+	@DeleteMapping("/user/{id}") 
+		public Boolean deleteUser(@PathVariable Integer id) {
+			return userService.deleteUser(id);
+		}
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
-//	private static final Logger logger = Logger.getLogger(UserController.class);
+/*	private static final Logger logger = Logger.getLogger(UserController.class);
 
 	static List<User> user;
 	public static Handler getUsers = ctx -> {
@@ -72,7 +114,7 @@ public class UserController {
 			ctx.redirect("./employeepage.html");
 		}
 	};
-*/
+
 
 	public static Handler userLogout = ctx -> {
 		if (ctx.body().contains("log-out")) {
@@ -115,5 +157,4 @@ public class UserController {
 		
 		//ctx.redirect("./employeepage.html");
 	};
-
-}
+*/

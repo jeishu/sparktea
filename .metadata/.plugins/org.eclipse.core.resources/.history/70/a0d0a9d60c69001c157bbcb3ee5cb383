@@ -1,0 +1,5 @@
+package com.project.sparktea.model;
+
+public class MyConfiguration {
+
+}

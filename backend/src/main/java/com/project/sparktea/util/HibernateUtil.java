@@ -26,14 +26,7 @@ public class HibernateUtil {
 	               settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 	                settings.put(Environment.HBM2DDL_AUTO, "update");
 	                configuration.setProperties(settings);
-					
-	               /*
-	                configuration.addAnnotatedClass(com.p1.model.Reimbursement.class);
-	                configuration.addAnnotatedClass(com.p1.model.ReimbursementStatus.class);
-	                configuration.addAnnotatedClass(com.p1.model.ReimbursementType.class);
-	                configuration.addAnnotatedClass(com.p1.model.User.class);
-	                configuration.addAnnotatedClass(com.p1.model.UserRole.class);
-	                */
+				
 	                
 	                ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 	                    .applySettings(configuration.getProperties()).build();
