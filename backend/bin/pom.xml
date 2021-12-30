@@ -75,8 +75,6 @@
             <artifactId>hibernate-core</artifactId>
             <version>5.4.30.Final</version>
         </dependency>
-<<<<<<< HEAD
-=======
         
         <dependency>
 	<groupId>org.springframework.boot</groupId>
@@ -117,9 +115,6 @@
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 		
-		
-		
->>>>>>> main
 	</dependencies>
         
 
