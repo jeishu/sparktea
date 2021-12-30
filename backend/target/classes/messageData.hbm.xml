@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.project.sparktea.model.MessageData" table="message_data">
+
+
+		<id name="userid" type="int" column="userid">
+			<generator class="native" />
+		</id>
+
+	
+		<property name="date" column="date" type="int" />
+		<property name="time" column="time" type="int" />
+		<property name="url" column="url" type="string" />
+		<property name="photo" column="photo" type="byte" />
+		<property name="text" column="text" type="string" />
+		
+		
+	</class>
+
+
+</hibernate-mapping>
