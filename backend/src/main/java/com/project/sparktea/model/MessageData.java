@@ -13,12 +13,17 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+<<<<<<< HEAD
+import org.springframework.stereotype.Component;
+@Component
+=======
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @ToString
+>>>>>>> main
 @Entity
 @Table(name="message_data", schema="public")
 public class MessageData {

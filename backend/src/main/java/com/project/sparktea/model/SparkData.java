@@ -6,6 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+<<<<<<< HEAD
+
+import org.springframework.stereotype.Component;
+@Component
+=======
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,6 +21,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+>>>>>>> main
 @Entity
 @Table(name="spark_data", schema="public")
 public class SparkData {
