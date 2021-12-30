@@ -32,8 +32,8 @@ import com.project.sparktea.service.UserService;
 
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController
-@RequestMapping("/api")
-//@RequestMapping("/users")
+//@RequestMapping("/api")
+@RequestMapping("/users")
 public class UserController {
 	
 	//DANIEL
@@ -60,20 +60,9 @@ public class UserController {
 			return userService.deleteUser(id);
 		}
 	
+
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	/*
 	
 		//JOSE
 	@Autowired
@@ -170,6 +159,8 @@ public class UserController {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	*/
 }
 
 
