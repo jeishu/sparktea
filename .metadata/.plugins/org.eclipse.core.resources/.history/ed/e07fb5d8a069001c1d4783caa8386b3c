@@ -1,5 +1,0 @@
-package com.project.sparktea.exception;
-
-public class ResourceNotFoundException {
-
-}
