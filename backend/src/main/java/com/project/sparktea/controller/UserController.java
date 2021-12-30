@@ -22,11 +22,60 @@ import org.springframework.web.bind.annotation.RestController;
 import com.project.sparktea.model.User;
 import com.project.sparktea.model.UserRepository;
 
+
+
+import javax.annotation.Resource;
+
+
+import com.project.sparktea.model.UserData;
+import com.project.sparktea.service.UserService;
+
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/api")
+//@RequestMapping("/users")
 public class UserController {
-
+	
+	//DANIEL
+	@Resource(name="userService")
+	private UserService userService;
+	
+	@GetMapping
+	public List<UserData> getUsers(){
+		return userService.getAllUsers();
+	}
+	
+	@GetMapping("/user/{id}")
+	public UserData getUser(@PathVariable Integer id) {
+		return userService.getUserById(id);
+	}
+	
+	@PostMapping("/user")
+	public UserData saveUser(final @RequestBody UserData userData) {
+		return userService.saveUser(userData);
+	}
+	
+	@DeleteMapping("/user/{id}") 
+		public Boolean deleteUser(@PathVariable Integer id) {
+			return userService.deleteUser(id);
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		//JOSE
 	@Autowired
 	UserRepository userRepository;
 
