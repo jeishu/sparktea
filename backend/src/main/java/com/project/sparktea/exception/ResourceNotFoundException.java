@@ -1,5 +1,10 @@
 package com.project.sparktea.exception;
 
+<<<<<<< HEAD
+=======
+import lombok.Data;
+
+>>>>>>> main
 public @Data class  ResourceNotFoundException extends RuntimeException{
 private String resourceName;
 private String fieldName;
