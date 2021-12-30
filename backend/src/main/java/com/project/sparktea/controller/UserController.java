@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+<<<<<<< HEAD
+=======
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +28,7 @@ import com.project.sparktea.model.UserRepository;
 
 import javax.annotation.Resource;
 
+>>>>>>> main
 
 import com.project.sparktea.model.UserData;
 import com.project.sparktea.service.UserService;
