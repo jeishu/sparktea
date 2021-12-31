@@ -1,0 +1,15 @@
+@use "../../scss/colors" as *;
+
+.svg-icons {
+    width: 25px;
+    height: auto;
+    fill: $non-active-color;
+
+    @media (min-width: 768px){
+        width: 30px;
+    }
+}
+
+.active > .svg-icons {
+    fill: $active-color;
+}
