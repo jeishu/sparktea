@@ -14,7 +14,12 @@ export const FormContainer = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 0px 2.5px rgba(15, 15, 15, 0.19);
+  //box-shadow: 0px 0px 2.5px rgba(15, 15, 15, 0.19);
+  //Media Queries
+  //ipad and above to Desktop
+  @media only screen and (min-width: 768px) {
+    box-shadow: 0px 0px 2.5px rgba(15, 15, 15, 0.19);
+  }
 `;
 
 export const MutedLink = styled.a`
@@ -34,7 +39,7 @@ export const BoldLink = styled.a`
 
 export const Input = styled.input`
   width: 100%;
-  height: 25px;
+  height: 30px;
   outline: none;
   //border: 1px solid rgba(200, 200, 200, 0.3);
   border: none;
