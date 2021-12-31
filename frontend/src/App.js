@@ -8,16 +8,15 @@ import "./scss/index.scss"
 function App() {
   return (
     <div className="App">
-      <LoginSignUp/>
-      {/* <BrowserRouter>
+      {/* <LoginSignUp/> */}
+      <BrowserRouter>
         <Routes >
           <Route path="/" element={<Navbar/>}>
             <Route path="home" element={<Home/>}/>
-            <Route path="login" element={<Login/>}/>
             <Route path="profile" element={<Profile/>}/>
           </Route>
         </Routes>
-      </BrowserRouter> */}
+      </BrowserRouter>
     </div>
   );
 }
