@@ -34,38 +34,48 @@ export const BoldLink = styled.a`
 
 export const Input = styled.input`
   width: 100%;
-  height: 42px;
+  height: 25px;
   outline: none;
-  border: 1px solid rgba(200, 200, 200, 0.3);
-  padding: 0px 10px;
-  border-bottom: 1.4px solid transparent;
+  //border: 1px solid rgba(200, 200, 200, 0.3);
+  border: none;
+  padding: 1px 9px;
+  /* margin: 5px 0; */
+  /* border-radius: 5px; */
+  /* background-color: rgba(130, 130, 130, 0.104); */
+  background-color: transparent;
+  border-bottom: 1px solid rgba(238, 238, 238, 0.104);
   transition: all 200ms ease-in-out;
   font-size: 12px;
   &::placeholder {
     color: rgba(200, 200, 200, 1);
   }
-  &:not(:last-of-type) {
+  /* &:not(:last-of-type) {
     border-bottom: 1.5px solid rgba(200, 200, 200, 0.4);
-  }
+  } */
   &:focus {
     outline: none;
     border-bottom: 2px solid rgb(69, 211, 230);
   }
+  /* background: linear-gradient(to right, rgb(240, 240, 240) 50%, rgb(124, 124, 124) 50%) left;
+  background-size: 200%;
+  &:hover, &:active {
+      background-position: right;
+      color: white;
+  } */
 `;
 
 export const SubmitButton = styled.button`
   width: 100%;
-  padding: 11px 40%;
+  padding: 4px;
   color: #fff;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 14px;
   border: none;
-  border-radius: 100px 100px 100px 100px;
+  border-radius: 100px;
   cursor: pointer;
   transition: all, 240ms ease-in-out;
   background: rgb(0,61,255);
     background: linear-gradient(90deg,
-         #89a3f7 0%, 
+         #6382e9 0%, 
          #00aa9c 49%, 
          #327e59 100%);
   );
