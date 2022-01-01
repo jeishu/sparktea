@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-<<<<<<< HEAD
-=======
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,15 +26,14 @@ import com.project.sparktea.model.UserRepository;
 
 import javax.annotation.Resource;
 
->>>>>>> main
 
 import com.project.sparktea.model.UserData;
 import com.project.sparktea.service.UserService;
 
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController
-@RequestMapping("/api")
-//@RequestMapping("/users")
+//@RequestMapping("/api")
+@RequestMapping("/users")
 public class UserController {
 	
 	//DANIEL
@@ -63,20 +60,9 @@ public class UserController {
 			return userService.deleteUser(id);
 		}
 	
+
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	/*
 	
 		//JOSE
 	@Autowired
@@ -173,6 +159,8 @@ public class UserController {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	*/
 }
 
 
