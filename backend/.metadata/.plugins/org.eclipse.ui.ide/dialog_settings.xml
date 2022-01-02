@@ -56,7 +56,7 @@
 		<item value="org.eclipse.jst.ws.axis2tools.feature:1.1.401.v201909051708"/>
 		<item value="org.eclipse.jst.ws.cxf.feature:1.1.900.v202107101953"/>
 		<item value="org.eclipse.jst.ws.jaxws.feature:1.2.800.v202104210249"/>
-		<item value="org.eclipse.justj.openjdk.hotspot.jre.full:17.0.0.v20211012-1059"/>
+		<item value="org.eclipse.justj.openjdk.hotspot.jre.full:17.0.1.v20211116-1657"/>
 		<item value="org.eclipse.m2e.feature:1.19.0.20211116-0804"/>
 		<item value="org.eclipse.m2e.logback.feature:1.17.2.20211002-1029"/>
 		<item value="org.eclipse.m2e.wtp.feature:1.4.4.20201128-1705"/>
@@ -84,7 +84,15 @@
 		<item value="org.jboss.tools.m2e.wro4j.feature:1.1.0.201406251020"/>
 		<item value="org.jboss.tools.maven.apt.feature:1.5.2.201812241535"/>
 		<item value="org.sonatype.m2e.buildhelper.feature:0.15.0.201207090124"/>
-		<item value="org.sonatype.m2e.egit.feature:0.16.0.202112122205"/>
 		<item value="org.sonatype.m2e.mavenarchiver.feature:0.17.5.202002191804"/>
 	</list>
+	<section name="SmartImportWizard">
+		<item key="SmartImportRootWizardPage.STORE_HIDE_ALREADY_OPEN" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_CLOSE_IMPORTED" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
+		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
+		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\benja\OneDrive\Desktop\sparktea\backend\backend"/>
+		</list>
+	</section>
 </section>
