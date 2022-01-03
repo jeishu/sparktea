@@ -25,20 +25,11 @@ public class MessageData {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="userid")
+	@Column(name="conversationId")
 	private int userId;
 	
-	@Column(name="date")
-	private int date;
-	
-	@Column(name="time")
-	private int time;
-	
-	@Column(name="url")
-	private String url;
-	
-	@Column(name="photo")
-	private byte photo;
+	@Column(name="sender")
+	private String sender;
 	
 	@Column(name="text")
 	private String text;

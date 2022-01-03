@@ -1,5 +1,7 @@
 package com.project.sparktea.model;
 
+import java.sql.Blob;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,7 +18,7 @@ public class UserData {
 	private String password;
 	private String gender;
 	private int DOB;
-	private byte profilePic;
+	private Blob profilePic;
 	
 	public UserData() {
 		
