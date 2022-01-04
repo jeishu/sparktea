@@ -8,7 +8,7 @@ export default function Share() {
         <div className="shareTop">
           <img className="shareProfileImg" src="/assets/person/1.jpeg" alt="" />
           <input
-            placeholder="What's in your mind Safak?"
+            placeholder="What's sparking in your mind today?"
             className="shareInput"
           />
         </div>
@@ -17,9 +17,9 @@ export default function Share() {
             <div className="shareOptions">
                 <div className="shareOption">
                     <PermMedia htmlColor="tomato" className="shareIcon"/>
-                    <span className="shareOptionText">Photo or Video</span>
+                    <span className="shareOptionText">Photo Upload</span>
                 </div>
-                <div className="shareOption">
+                {/* <div className="shareOption">
                     <Label htmlColor="blue" className="shareIcon"/>
                     <span className="shareOptionText">Tag</span>
                 </div>
@@ -30,9 +30,9 @@ export default function Share() {
                 <div className="shareOption">
                     <EmojiEmotions htmlColor="goldenrod" className="shareIcon"/>
                     <span className="shareOptionText">Feelings</span>
-                </div>
+                </div> */}
             </div>
-            <button className="shareButton">Share</button>
+            <button className="shareButton">Spark</button>
         </div>
       </div>
     </div>

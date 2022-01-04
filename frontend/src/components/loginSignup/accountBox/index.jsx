@@ -10,7 +10,7 @@ const BoxContainer = styled.div`
   min-height: 568px;
   display: flex;
   flex-direction: column;
-  background-color: #313131;
+  background-color: #ffffff;
   box-shadow: 0 0 2px rgba(162, 162, 162, 0.28);
   position: relative;
   overflow: hidden;

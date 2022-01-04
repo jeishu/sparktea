@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PostMapping;
+
 @RestController
 public class UserJPAResource {
 
@@ -18,7 +19,6 @@ public class UserJPAResource {
 		return userRepository.findAll();
 	}
 
-	
 	@PostMapping("/users/register")
 	public User createUser( @RequestBody User user) {
 		User savedUser = userRepository.save(user);
