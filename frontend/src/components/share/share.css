@@ -1,13 +1,14 @@
 .share {
-  width: 100%;
+  width: 50%;
   height: 170px;
   border-radius: 10px;
   -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
   box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+  margin: 0 auto;
 }
 
 .shareWrapper {
-  padding: 10px;
+  padding: 25px;
 }
 
 .shareTop {
@@ -33,7 +34,7 @@
 }
 
 .shareHr {
-  margin: 20px;
+  margin: 20px 50px;
 }
 
 .shareBottom {
@@ -69,7 +70,7 @@
     padding: 7px;
     border-radius: 5px;
     background-color: green;
-    font-weight: 500;
+    font-weight: 300;
     margin-right: 20px;
     cursor: pointer;
     color: white;

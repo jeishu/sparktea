@@ -43,12 +43,12 @@ public @Data  class User {
 	private String gender;
 
 	@Column(name = "DOB")
-	private int DOB;
+	private String DOB;
 
 
 
-	public Object getTitle() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	public Object getTitle() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 }
