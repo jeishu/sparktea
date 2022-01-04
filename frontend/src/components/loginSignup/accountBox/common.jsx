@@ -47,7 +47,7 @@ export const Input = styled.input`
   /* margin: 5px 0; */
   /* border-radius: 5px; */
   /* background-color: rgba(130, 130, 130, 0.104); */
-  background-color: transparent;
+  // background-color: transparent;
   border-bottom: 1px solid rgba(238, 238, 238, 0.104);
   transition: all 200ms ease-in-out;
   font-size: 12px;
