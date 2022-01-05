@@ -24,12 +24,12 @@ public @Data class Comment {
     private String content;
 	
 	@Column(name = "dat")
-    private Date date;
+    private String date;
 
 
 //
     @ManyToOne
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "userid")
     private User user;
 //    public User getUser() {
 //        return user;
@@ -40,7 +40,7 @@ public @Data class Comment {
 //    }
 //
     @ManyToOne
-    @JoinColumn(name = "postId")
+    @JoinColumn(name = "postid")
     private Post post;
 //    public Post getPost() {
 //        return post;

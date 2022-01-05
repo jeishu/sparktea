@@ -22,7 +22,7 @@ public @Data class Post {
     private String contnt;
 	
 	@Column(name = "dat")
-    private Date date;
+    private String date;
 
 	
 	
@@ -33,7 +33,8 @@ public @Data class Post {
     
 //
 		@ManyToOne
-      @JoinColumn(name = "userId")
+      @JoinColumn(name = "userid")
+	//	@JsonIgnore
     private User user;
 //    public User getUser() {
 //        return user;
