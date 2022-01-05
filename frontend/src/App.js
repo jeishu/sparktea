@@ -16,8 +16,8 @@ function App() {
 
   return (
     <div className="App">
-      <Home />
-        {/* <LoginSignUp/> */}
+      {/* <Home /> */}
+        <LoginSignUp/>
     {/* <BrowserRouter>
       <Routes>
         <Route component={Home} path="/" exact>
