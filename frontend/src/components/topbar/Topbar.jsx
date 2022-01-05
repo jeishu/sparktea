@@ -5,11 +5,7 @@ export default function Topbar() {
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
-<<<<<<< HEAD
-        <span className="logo">SparkTea!</span>
-=======
         <span className="logo">SparkTea</span>
->>>>>>> main
       </div>
       <div className="topbarCenter">
         {/* <div className="searchbar">

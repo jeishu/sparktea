@@ -16,9 +16,7 @@ function App() {
 
   return (
     <div className="App">
-<<<<<<< HEAD
-        <Home/>
-=======
+      <Home />
         {/* <LoginSignUp/> */}
     {/* <BrowserRouter>
       <Routes>
@@ -31,7 +29,6 @@ function App() {
       </Routes>
     </BrowserRouter> */}
       
->>>>>>> main
     </div>
   )
 }
