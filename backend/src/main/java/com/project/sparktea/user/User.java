@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 
 
 @Entity
-
 @Table  (name = "users", schema = "public")
 public @Data  class User {
 
@@ -46,9 +45,4 @@ public @Data  class User {
 	private String DOB;
 
 
-
-//	public Object getTitle() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
 }
