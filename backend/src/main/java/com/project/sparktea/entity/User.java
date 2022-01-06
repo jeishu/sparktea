@@ -1,28 +1,23 @@
 package com.project.sparktea.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import lombok.ToString;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
+
+import java.util.List;
 import java.util.Set;
 
 	//PREVIOUS CODE
 
 @Entity
-
+@Data
 @Table  (name = "users", schema = "public")
-public @Data  class User {
+public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -52,6 +47,19 @@ public @Data  class User {
 
 	@Column(name = "DOB")
 	private String DOB;
+	
+//	@ToString.Exclude
+//	@OneToMany(mappedBy = "users", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//	private List<Post> post;
+	
+	
+//	@ToString.Exclude
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	@JsonIgnore
+//	private Logins logins;
+	
+	
+	
 	
 //	@Column(name = "profilePicture")
 //	private String profilePictureUrl;
