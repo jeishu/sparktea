@@ -1,52 +1,59 @@
 package com.project.sparktea.repo;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.sparktea.entity.User;
-
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 //This is a controller
 @RestController
 @CrossOrigin("*")
-//@RequestMapping("/users")
 public class UserJPAResource {
 	
 	@Autowired
 	private UserRepository userRepository;
 	
-	@GetMapping
+	@GetMapping("/users")
 	public List<User> retrieveAllUsers(){
 		return userRepository.findAll();
 	}
 	
-	@PostMapping("/register")
+	@PostMapping("/users/register")
 	public User createUser( @RequestBody User user) {
 		User savedUser = userRepository.save(user);
 		return savedUser;
 	}
 	
-	@GetMapping("/username/{username}")
-	public User findByUsername(@PathVariable String username) {
-		return new User();
+	@PostMapping("/users/login")
+	public HttpStatus userLogin(@RequestBody User user) {
+		HttpStatus statush = null;
+		String usernameJs =user.getUsername();
+		String passwordJs=user.getPassword();
+		User loggedInUser = userRepository.findByUsername(usernameJs);
+		
+		if(loggedInUser.getPassword().equals(passwordJs)) {
+			statush= HttpStatus.OK;
+		}else {
+			statush= HttpStatus.BAD_REQUEST;
+		}
+		return statush;
 	}
 	
-	@GetMapping("/id/{id}")
-	public Optional<User> findByID(@PathVariable int id) {
-		return userRepository.findById(id);
-	}
+//	@GetMapping("/username/{username}")
+//	public User findByUsername(@PathVariable String username) {
+//		return new User();
+//	}
+//	
+//	@GetMapping("/id/{id}")
+//	public Optional<User> findByID(@PathVariable int id) {
+//		return userRepository.findById(id);
+//	}
 	
-	@GetMapping("/profile")
-	public List<User> getUserProfiles(){
-		return userProfileService.getUserProfiles();
-	}
 }
