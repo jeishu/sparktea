@@ -11,7 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,7 +24,8 @@ import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
 
-
+@Getter
+@Setter
 @Entity
 @Data
 @Table  (name = "users", schema = "public")
@@ -56,6 +59,9 @@ public class User {
 
 	@Column(name = "DOB")
 	private String DOB;
+	
+	@Column(name = "enabled")
+	private boolean Enabled;
 	
 //	@ToString.Exclude
 //	@OneToMany(mappedBy = "users", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
