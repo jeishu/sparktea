@@ -17,16 +17,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 //This is a controller
 @RestController
-@CrossOrigin(origins="http://localhost:3000/")
-@RequestMapping("/users")
+@CrossOrigin("*")
+//@RequestMapping("/users")
 public class UserJPAResource {
-	
-	private final UserProfileService userProfileService;
-	
-	@Autowired
-	public UserJPAResource(UserProfileService userProfileService) {
-		this.userProfileService = userProfileService;
-	}
 	
 	@Autowired
 	private UserRepository userRepository;
