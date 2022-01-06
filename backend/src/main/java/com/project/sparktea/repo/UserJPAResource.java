@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 //This is a controller
 @RestController
-@CrossOrigin(origins="*")
-//@RequestMapping("/users")
+@CrossOrigin(origins="http://localhost:3000/")
+@RequestMapping("/users")
 public class UserJPAResource {
 	
 	private final UserProfileService userProfileService;

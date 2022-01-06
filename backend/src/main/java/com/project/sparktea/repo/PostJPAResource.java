@@ -11,10 +11,11 @@ import com.project.sparktea.entity.Post;
 import com.project.sparktea.repo.PostRepository;
 
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @RestController
-@CrossOrigin(origins="*")
+@CrossOrigin("*")
 public class PostJPAResource {
 	@Autowired
 	private PostRepository postRepository;
@@ -26,6 +27,8 @@ public class PostJPAResource {
 
 	@PostMapping("/posts/create")
 	public Post createPost( @RequestBody Post post) {
+		
+		System.out.println(post);
 		Post savedPost = postRepository.save(post);
 		return savedPost;
 	}
