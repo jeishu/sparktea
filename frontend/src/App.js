@@ -8,6 +8,7 @@ import {
   Routes
 } from "react-router-dom";
 import "./scss/index.scss";
+import Uploader from "./components/imageUploader/Uploader";
 
 function App() {
   const [isLoggedIn,setIsLoggedIn] = useState(false);
@@ -16,8 +17,9 @@ function App() {
 
   return (
     <div className="App">
+      <Uploader/>
       {/* <Home /> */}
-        <LoginSignUp/>
+        {/* <LoginSignUp/> */}
     {/* <BrowserRouter>
       <Routes>
         <Route component={Home} path="/" exact>

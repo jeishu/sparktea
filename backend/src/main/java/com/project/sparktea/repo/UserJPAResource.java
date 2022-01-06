@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.sparktea.entity.User;
-
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,8 +44,4 @@ public class UserJPAResource {
 		return userRepository.findById(id);
 	}
 	
-	@GetMapping("/profile")
-	public List<User> getUserProfiles(){
-		return userProfileService.getUserProfiles();
-	}
 }

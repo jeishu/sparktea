@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RestController
 @CrossOrigin("*")
 public class PostJPAResource {
+	
 	@Autowired
 	private PostRepository postRepository;
 	

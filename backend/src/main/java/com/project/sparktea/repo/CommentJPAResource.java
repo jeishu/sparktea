@@ -1,6 +1,5 @@
 package com.project.sparktea.repo;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
