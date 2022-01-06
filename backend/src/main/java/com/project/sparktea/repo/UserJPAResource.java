@@ -15,11 +15,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+//This is a controller
 @RestController
 @CrossOrigin(origins="*")
-@RequestMapping("/users")
+//@RequestMapping("/users")
 public class UserJPAResource {
-
+	
+	private final UserProfileService userProfileService;
+	
+	@Autowired
+	public UserJPAResource(UserProfileService userProfileService) {
+		this.userProfileService = userProfileService;
+	}
+	
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -27,7 +35,7 @@ public class UserJPAResource {
 	public List<User> retrieveAllUsers(){
 		return userRepository.findAll();
 	}
-
+	
 	@PostMapping("/register")
 	public User createUser( @RequestBody User user) {
 		User savedUser = userRepository.save(user);
@@ -42,5 +50,10 @@ public class UserJPAResource {
 	@GetMapping("/id/{id}")
 	public Optional<User> findByID(@PathVariable int id) {
 		return userRepository.findById(id);
+	}
+	
+	@GetMapping("/profile")
+	public List<User> getUserProfiles(){
+		return userProfileService.getUserProfiles();
 	}
 }

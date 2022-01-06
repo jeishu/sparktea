@@ -39,7 +39,7 @@ export function SignupForm(props) {
   
   function registerFormData(){
 
-    axios.post('http://localhost:8080/users/register',{
+    axios.post('http://localhost:7070/users/register',{
       firstName: values.firstName,
       lastName: values.lastName,
       email: values.email,

@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-@ComponentScan
+@ComponentScan({"com.amazonaws.services.s3.AmazonS3"})
 @SpringBootApplication
 public class SparkTea {
 

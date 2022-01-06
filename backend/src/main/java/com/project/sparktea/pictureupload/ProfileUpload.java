@@ -1,6 +1,7 @@
 package com.project.sparktea.pictureupload;
 
 import java.util.Objects;
+import java.util.Optional;
 import java.util.UUID;
 
 public class ProfileUpload {
@@ -32,8 +33,8 @@ public class ProfileUpload {
 		this.username = username;
 	}
 
-	public String getProfileImgLink() {
-		return profileImgLink;
+	public Optional<String> getProfileImgLink() {
+		return Optional.ofNullable(profileImgLink);
 	}
 
 	public void setProfileImgLink(String profileImgLink) {

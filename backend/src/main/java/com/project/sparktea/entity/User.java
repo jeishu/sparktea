@@ -1,5 +1,8 @@
 package com.project.sparktea.entity;
 
+import java.util.Objects;
+import java.util.Optional;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,19 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import javax.persistence.*;
-import java.util.Set;
-
-	//PREVIOUS CODE
 
 @Entity
-
 @Table  (name = "users", schema = "public")
 public @Data  class User {
 
@@ -47,138 +40,48 @@ public @Data  class User {
 	@Column(name = "passwrd")
 	private String password;
 
-	@Column(name = "gender")
-	private String gender;
-
-	@Column(name = "DOB")
-	private String DOB;
-	
-//	@Column(name = "profilePicture")
-//	private String profilePictureUrl;
+//	@Column(name = "gender")
+//	private String gender;
+//
+//	@Column(name = "DOB")
+//	private String DOB;
 //	
-//	 public String getProfilePictureUrl() {
-//		 return profilePictureUrl;
-//	    }
-//
-//	 public void setProfilePictureUrl(String profilePictureUrl) {
-//	     this.profilePictureUrl = profilePictureUrl;
-//	    }
-//	 
-//	 @JsonIgnore
-//	    private Set<User> following;
-//	 
-//	 @ManyToMany(cascade = CascadeType.ALL)
-//	 @JoinTable(name = "following",
-//	            joinColumns = @JoinColumn(name = "userId", referencedColumnName = "id"),
-//	            inverseJoinColumns = @JoinColumn(name = "followingId", referencedColumnName = "id"))
-//	    public Set<User> getFollowing() {
-//	        return following;
-//	    }
-//
-//	    public void setFollowing(Set<User> following) {
-//	        this.following = following;
-//	    }
+	@Column(name = "profileimglink")
+	private String profileImgLink; // S3 key/link
+	
+	public Optional<String> getProfileImgLink() {
+		return Optional.ofNullable(profileImgLink);
+	}
+	
+	public void setProfileImgLink(String profileImgLink) {
+		this.profileImgLink = profileImgLink;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(profileImgLink, userId, username);
+	}
 
+	//Object everything maybe?
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (obj == null) return false;
+		if (getClass() != obj.getClass()) return false;
+		User other = (User) obj;
+		return Objects.equals(profileImgLink, other.profileImgLink) && 
+			   Objects.equals(userId, other.userId)&& 
+			   Objects.equals(username, other.username);
+	}
 
+	public User(int i, String string, String string2, String string3, String string4, String string5, String string6,
+			Object object) {
+	}
 
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+	
 
-//	public Object getTitle() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
+	
 }
-
-
-
-
-
-
-		/*
-
-
-@Entity
-public class User {
-
-    private Long id;
-    private String username;
-    private String profilePictureUrl;
-
-    @JsonIgnore
-    private Set<User> following;
-
-    private String password;
-
-    @JsonIgnore
-    private Set<Post> posts;
-
-    @JsonIgnore
-    private Set<Comment> comments;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
-    public String getUsername() {
-        return username;
-    }
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    @JsonIgnore
-    public String getPassword() {
-        return password;
-    }
-
-    @JsonProperty
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    @OneToMany(mappedBy = "user")
-    public Set<Post> getPosts() {
-        return posts;
-    }
-    public void setPosts(Set<Post> posts) {
-        this.posts = posts;
-    }
-
-    @OneToMany(mappedBy = "user")
-    public Set<Comment> getComments() {
-        return comments;
-    }
-    public void setComments(Set<Comment> comments) {
-        this.comments = comments;
-    }
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "following",
-            joinColumns = @JoinColumn(name = "userId", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "followingId", referencedColumnName = "id"))
-    public Set<User> getFollowing() {
-        return following;
-    }
-
-    public void setFollowing(Set<User> following) {
-        this.following = following;
-    }
-
-    public String getProfilePictureUrl() {
-        return profilePictureUrl;
-    }
-
-    public void setProfilePictureUrl(String profilePictureUrl) {
-        this.profilePictureUrl = profilePictureUrl;
-    }
-
-
-}
-
-
-
-
-*/
