@@ -1,7 +1,9 @@
 import "./share.css";
-import {PermMedia, Label,Room, EmojiEmotions, Cancel} from "@material-ui/icons"
 import { useState } from "react";
 import axios from "axios"; 
+import Uploader from "../imageUploader/Uploader";
+
+
 
 export default function Share() {
   const [values,setValues] = useState({contnt:""});
@@ -32,11 +34,11 @@ export default function Share() {
         <div className="shareBottom">
             <div className="shareOptions">
                 <div className="shareOption">
-                    <PermMedia htmlColor="tomato" className="shareIcon"/>
-                    <span className="shareOptionText">Photo Upload</span>
+                    <Uploader/> 
                 </div>
+                <button onClick={registerTextData} className="shareButton">Spark</button>
             </div>
-            <button onClick={registerTextData} className="shareButton">Spark</button>
+           
         </div>
       </div>
     </div>
