@@ -10,9 +10,12 @@ import {
 import { Marginer } from "../marginer/Marginer";
 import { AccountContext } from "./accountContext";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export function SignupForm(props) {
   const { switchToSignin } = useContext(AccountContext);
+
+  // let navigate = useNavigate();
 
   const [values, setValues] = useState({
     firstName: '',
@@ -21,6 +24,7 @@ export function SignupForm(props) {
     username: '',
     password:''
   });
+
   const handleFirstName = (event) =>{
     setValues({...values, firstName: event.target.value})
   }
@@ -36,20 +40,29 @@ export function SignupForm(props) {
   const handlePassword = (event) =>{
     setValues({...values, password: event.target.value})
   }
-  
-  function registerFormData(){
+function registerFormData(){
 
-    axios.post('http://localhost:7070/register',{
+    axios.post('http://localhost:7070/users/register',{
       firstName: values.firstName,
       lastName: values.lastName,
       email: values.email,
       username: values.username,
       password: values.password
     })
-    .then(res =>{
-      console.log(res)
-    }).catch(err => console.log(err))
+    .then(response => {redirectTologin(response.status)
+  }).catch(err => console.log(err))
+
+
+  function redirectTologin(status){
+
+    if(status === 200){
+      
+      // navigate("/");
+    
+  
+    }else alert("Sorry Wrong login")
   }
+}
 
   return (
     <BoxContainer>
@@ -59,7 +72,6 @@ export function SignupForm(props) {
         <Input type="email" name="email" onChange={handleEmail} placeholder="Email" value={values.email} />
         <Input type="username" name="username" onChange={handleUsername} placeholder="Username" value={values.username} />
         <Input type="password" name="password" onChange={handlePassword} placeholder="Password" value={values.password} />
-    
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
       <SubmitButton type="submit" onClick={registerFormData}>Sign up</SubmitButton>
@@ -69,7 +81,6 @@ export function SignupForm(props) {
         <BoldLink href="#" onClick={switchToSignin}>
           Sign in
         </BoldLink>
-
       </MutedLink>
     </BoxContainer>
   );

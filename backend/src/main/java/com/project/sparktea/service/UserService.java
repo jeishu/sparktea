@@ -8,9 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.project.sparktea.entity.User;
 import com.project.sparktea.repo.UserRepository;
-import com.project.sparktea.view.Following;
-
-
 
 @Service
 public class UserService {
@@ -33,7 +30,7 @@ public class UserService {
     
     public void add(User user) {
     	System.out.println(user.getUsername());
-    	List<User> UserName = user.getUsername();
+    	String UserName = user.getUsername();
     	
     	User newUser = new User();
     	newUser.setUsername(user.getUsername());

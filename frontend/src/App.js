@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Home from "./pages/home/Home";
 import LoginSignUp from "./pages/loginSignup/LoginSignUp";
 import Profile from "./pages/profile/Profile";
@@ -10,25 +9,21 @@ import {
 import "./scss/index.scss";
 
 function App() {
-  const [isLoggedIn,setIsLoggedIn] = useState(false);
 
   //check for loggin
 
   return (
     <div className="App">
-      {/* <Home /> */}
-        <LoginSignUp/>
-    {/* <BrowserRouter>
-      <Routes>
-        <Route component={Home} path="/" exact>
-          {isLoggedIn ? <Home/> : <LoginSignUp/>}
-        </Route>
-        <Route component={Profile} path="/profile" exact>
-          {isLoggedIn ? <Profile/> : <LoginSignUp/>}
-        </Route>
-      </Routes>
-    </BrowserRouter> */}
-      
+      {/* <LoginSignUp /> */}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LoginSignUp />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          {/* <Route path="/pages/register/Register" element={<Register />} /> */}
+        </Routes>
+      </BrowserRouter>          
+
     </div>
   )
 }
