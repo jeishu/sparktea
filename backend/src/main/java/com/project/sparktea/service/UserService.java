@@ -1,6 +1,8 @@
 package com.project.sparktea.service;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +30,27 @@ public class UserService {
             throw new Exception("Invalid username or password.");
         }
     }
+    
+    public void add(User user) {
+    	System.out.println(user.getUsername());
+    	List<User> UserName = user.getUsername();
+    	
+    	User newUser = new User();
+    	newUser.setUsername(user.getUsername());
+    	newUser.setEmail(user.getEmail());
+    	newUser.setPassword(user.getPassword());
+    	newUser.setDOB(user.getDOB());
+    	newUser.setFirstName(user.getFirstName());
+    	newUser.setLastName(user.getLastName());
+    	newUser.setGender(user.getGender());
+    	newUser.setUserId(user.getUserId());
+    	
+    	repo.save(newUser);
+    }
 
+    
+    
+    
 //    public Following follow(Long userId, Long followId) throws Exception {
 //        User user = repo.findOne(userId);
 //        User follow = repo.findOne(followId);

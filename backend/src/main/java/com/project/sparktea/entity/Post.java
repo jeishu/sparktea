@@ -9,9 +9,9 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-
+@Data
 @Table  (name = "posts", schema = "public")
-public @Data class Post {
+public class Post {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,7 +22,7 @@ public @Data class Post {
     private String contnt;
 	
 	@Column(name = "dat")
-    private Date date;
+    private String date;
 
 	
 	
@@ -32,8 +32,9 @@ public @Data class Post {
 
     
 //
-		@ManyToOne
-      @JoinColumn(name = "userId")
+	@ManyToOne
+      @JoinColumn(name = "userid")
+	//	@JsonIgnore
     private User user;
 //    public User getUser() {
 //        return user;
@@ -42,9 +43,9 @@ public @Data class Post {
 //        this.user = user;
 //    }
 //
-//    @OneToMany(mappedBy = "post")
-//    public Set<Comment> getComments() {
-//        return comments;
+//    @OneToMany(mappedBy = "users")
+//    public Set<User> getUsers() {
+//       
 //    }
 //    public void setComments(Set<Comment> comments) {
 //        this.comments = comments;

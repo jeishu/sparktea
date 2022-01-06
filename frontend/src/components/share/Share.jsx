@@ -1,7 +1,21 @@
 import "./share.css";
-import {PermMedia, Label,Room, EmojiEmotions} from "@material-ui/icons"
+import {PermMedia, Label,Room, EmojiEmotions, Cancel} from "@material-ui/icons"
+import { useState } from "react";
+import axios from "axios"; 
 
 export default function Share() {
+  const [values,setValues] = useState({contnt:""});
+  // const [user,setUser] = useState({ })
+  // const [date,setDate] = useState({dat:""});
+
+  const handleTextChange= (event) => {setValues({...values,contnt: event.target.value})}
+  // const handleTextChange= (event) => {setValues({...date,dat: value.contnt, dat: date})}
+  
+  function registerTextData(){
+    axios.post("http://localhost:7070/posts/create",{contnt:values.contnt})
+    .then(response =>{console.log(response.status)}).catch(error => console.log(error))
+  }
+
   return (
     <div className="share">
       <div className="shareWrapper">
@@ -10,6 +24,8 @@ export default function Share() {
           <input
             placeholder="What's sparking in your mind today?"
             className="shareInput"
+            value={values.contnt}
+            onChange={handleTextChange}
           />
         </div>
         <hr className="shareHr"/>
@@ -19,20 +35,8 @@ export default function Share() {
                     <PermMedia htmlColor="tomato" className="shareIcon"/>
                     <span className="shareOptionText">Photo Upload</span>
                 </div>
-                {/* <div className="shareOption">
-                    <Label htmlColor="blue" className="shareIcon"/>
-                    <span className="shareOptionText">Tag</span>
-                </div>
-                <div className="shareOption">
-                    <Room htmlColor="green" className="shareIcon"/>
-                    <span className="shareOptionText">Location</span>
-                </div>
-                <div className="shareOption">
-                    <EmojiEmotions htmlColor="goldenrod" className="shareIcon"/>
-                    <span className="shareOptionText">Feelings</span>
-                </div> */}
             </div>
-            <button className="shareButton">Spark</button>
+            <button onClick={registerTextData} className="shareButton">Spark</button>
         </div>
       </div>
     </div>
