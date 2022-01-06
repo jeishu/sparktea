@@ -94,43 +94,5 @@ public class User {
 //
 //	@Column(name = "DOB")
 //	private String DOB;
-//	
-	@Column(name = "profileimglink")
-	private String profileImgLink; // S3 key/link
-	
-	public Optional<String> getProfileImgLink() {
-		return Optional.ofNullable(profileImgLink);
-	}
-	
-	public void setProfileImgLink(String profileImgLink) {
-		this.profileImgLink = profileImgLink;
-	}
-	
-	@Override
-	public int hashCode() {
-		return Objects.hash(profileImgLink, userId, username);
-	}
-
-	//Object everything maybe?
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) return true;
-		if (obj == null) return false;
-		if (getClass() != obj.getClass()) return false;
-		User other = (User) obj;
-		return Objects.equals(profileImgLink, other.profileImgLink) && 
-			   Objects.equals(userId, other.userId)&& 
-			   Objects.equals(username, other.username);
-	}
-
-	public User(int i, String string, String string2, String string3, String string4, String string5, String string6,
-			Object object) {
-	}
-
-	public User() {
-		// TODO Auto-generated constructor stub
-	}
-	
-
-	
+//		
 }

@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom";
 export function SignupForm(props) {
   const { switchToSignin } = useContext(AccountContext);
 
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
   const [values, setValues] = useState({
     firstName: '',
@@ -42,7 +42,7 @@ export function SignupForm(props) {
   }
 function registerFormData(){
 
-    axios.post('http://localhost:8080/users/register',{
+    axios.post('http://localhost:7070/users/register',{
       firstName: values.firstName,
       lastName: values.lastName,
       email: values.email,
@@ -57,7 +57,7 @@ function registerFormData(){
 
     if(status === 200){
       
-      navigate("/");
+      // navigate("/");
     
   
     }else alert("Sorry Wrong login")
@@ -72,7 +72,6 @@ function registerFormData(){
         <Input type="email" name="email" onChange={handleEmail} placeholder="Email" value={values.email} />
         <Input type="username" name="username" onChange={handleUsername} placeholder="Username" value={values.username} />
         <Input type="password" name="password" onChange={handlePassword} placeholder="Password" value={values.password} />
-    
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
       <SubmitButton type="submit" onClick={registerFormData}>Sign up</SubmitButton>
@@ -82,7 +81,6 @@ function registerFormData(){
         <BoldLink href="#" onClick={switchToSignin}>
           Sign in
         </BoldLink>
-
       </MutedLink>
     </BoxContainer>
   );

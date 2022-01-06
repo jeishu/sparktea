@@ -2,11 +2,11 @@ import React from 'react'
 // import 'react-dropzone-uploader/dist/styles.css'
 import Dropzone from 'react-dropzone-uploader'
 import axios from 'axios'
+import "./uploader.scss";
 
 const Uploader = () => {
     const API_ENDPOINT = "https://kicko26hfd.execute-api.us-east-2.amazonaws.com/default/getPresignedImageURL"
   
-
     const handleChangeStatus = ({ meta, remove }, status) => {
         console.log(status, meta);
     }
@@ -30,23 +30,23 @@ const Uploader = () => {
             body: f['file']
         })
         console.log('Result: ', result)
-
     }
 
     return (
-
-        <Dropzone
+        <div className="photo-uploader">
+            <Dropzone
             onChangeStatus={handleChangeStatus}
             onSubmit={handleSubmit}
             maxFiles={1}
             multiple={false}
             canCancel={false}
-            inputContent="Drop A File"
+            inputContent=""
             styles={{
                 dropzone: { width: 400, height: 200 },
                 dropzoneActive: { borderColor: 'green' },
             }}
-        />
+            />
+        </div>
     )
 }
 

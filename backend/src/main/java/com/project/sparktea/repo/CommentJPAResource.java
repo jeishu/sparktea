@@ -8,13 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.sparktea.entity.Comment;
-import com.project.sparktea.repo.CommentRepository;
-
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @RestController
-@CrossOrigin(origins="*")
+@CrossOrigin("*")
 public class CommentJPAResource {
 
 	@Autowired

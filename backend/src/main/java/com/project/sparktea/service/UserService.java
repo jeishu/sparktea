@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.project.sparktea.entity.User;
 import com.project.sparktea.repo.UserRepository;
-import com.project.sparktea.view.Following;
 
 @Service
 public class UserService {

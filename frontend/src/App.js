@@ -14,12 +14,12 @@ function App() {
 
   return (
     <div className="App">
-      <LoginSignUp />
+      {/* <LoginSignUp /> */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LoginSignUp />} />
-          <Route path="/pages/home/Home" element={<Home />} />
-          <Route path="/pages/profile/Profile" element={<Profile />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
           {/* <Route path="/pages/register/Register" element={<Register />} /> */}
         </Routes>
       </BrowserRouter>          
