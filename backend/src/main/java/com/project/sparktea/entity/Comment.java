@@ -11,9 +11,9 @@ import java.util.Date;
 
 
 @Entity
-
+@Data
 @Table  (name = "commnts", schema = "public")
-public @Data class Comment {
+public class Comment {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
