@@ -2,6 +2,7 @@ import "./share.css";
 import { useState } from "react";
 import axios from "axios";
 import moment from "moment";
+import Boy from "./boy.jpeg";
 
 export default function Share() {
   const [values, setValues] = useState({ contnt: "", dat: "" });
@@ -30,7 +31,7 @@ export default function Share() {
     <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
-          <img className="shareProfileImg" src={require("./boy.jpeg")} alt="" />
+          <img className="shareProfileImg" src={Boy} alt={Boy} />
           <input
             placeholder="What's sparking in your mind today?"
             className="shareInput"

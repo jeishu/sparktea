@@ -4,6 +4,9 @@ import Topbar from "../../components/topbar/Topbar";
 import Feed from "../../components/feed/Feed";
 import Uploader from "../../components/imageUploader/Uploader";
 import axios from "axios";
+import Boy from "./boy.jpeg";
+import BG from "./3.jpeg";
+
 
 export default function Profile() {
   const [profi, setProfi] = useState([]);
@@ -28,13 +31,13 @@ export default function Profile() {
             <div className="profileCover">
               <img
                 className="profileCoverImg"
-                src={require("./3.jpeg")}
-                alt=""
+                src={3}
+                alt={3}
               />
               <img
                 className="profileUserImg"
-                src={require("./boy.jpeg")}
-                alt=""
+                src={Boy}
+                alt={Boy}
               />
             </div>
             <div className="profileInfo">
