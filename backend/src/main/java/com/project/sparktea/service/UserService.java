@@ -1,8 +1,6 @@
 package com.project.sparktea.service;
 
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,30 +17,21 @@ public class UserService {
         return repo.save(user);
     }
 
-    public User login(User user) throws Exception {
-        User foundUser = repo.findByUsername(user.getUsername());
-        if (foundUser != null && foundUser.getPassword().equals(user.getPassword())){
-            return foundUser;
-        } else {
-            throw new Exception("Invalid username or password.");
+    public User userLogin(String username, String password) {
+        User loggedInUser = repo.findByUsername(username);    
+        if(loggedInUser.getPassword().equals(password)) {
+            return loggedInUser;
+        }else {
+            return null;
         }
+    } 
+    
+    public User register(User user) {
+		return repo.save(user);
     }
     
-    public void add(User user) {
-    	System.out.println(user.getUsername());
-    	String UserName = user.getUsername();
-    	
-    	User newUser = new User();
-    	newUser.setUsername(user.getUsername());
-    	newUser.setEmail(user.getEmail());
-    	newUser.setPassword(user.getPassword());
-    	newUser.setDOB(user.getDOB());
-    	newUser.setFirstName(user.getFirstName());
-    	newUser.setLastName(user.getLastName());
-    	newUser.setGender(user.getGender());
-    	newUser.setUserId(user.getUserId());
-    	
-    	repo.save(newUser);
+    public User getUserByID(int id) {
+		return repo.getById(id);
     }
 
     

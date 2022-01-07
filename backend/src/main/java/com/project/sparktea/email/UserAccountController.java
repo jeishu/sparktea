@@ -2,16 +2,20 @@ package com.project.sparktea.email;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.sparktea.entity.User;
 import com.project.sparktea.repo.UserRepository;
 
-@Controller
+@RestController
+@CrossOrigin("*")
 public class UserAccountController {
 
     @Autowired
@@ -23,7 +27,7 @@ public class UserAccountController {
     @Autowired
     private EmailService emailService;
 
-    @RequestMapping(value="/register", method = RequestMethod.GET)
+    @GetMapping("/register")
     public ModelAndView displayRegistration(ModelAndView modelAndView, User userEntity)
     {
         modelAndView.addObject("userEntity", userEntity);
@@ -33,7 +37,7 @@ public class UserAccountController {
     
     
     
-    @RequestMapping(value="/register", method = RequestMethod.POST)
+    @PostMapping("/register")
     public ModelAndView registerUser(ModelAndView modelAndView, User userEntity)
     {
 
@@ -86,7 +90,6 @@ public class UserAccountController {
             modelAndView.addObject("message","The link is invalid or broken!");
             modelAndView.setViewName("error");
         }
-
         return modelAndView;
     }
 }

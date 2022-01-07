@@ -25,11 +25,9 @@ public class PostJPAResource {
 	}
 
 	@PostMapping("/posts/create")
-	public Post createPost( @RequestBody Post post) {
-		
+	public Post createPost( @RequestBody Post post) {		
 		System.out.println(post);
-		Post savedPost = postRepository.save(post);
-		return savedPost;
+		return postRepository.save(post);
 	}
 }
 
