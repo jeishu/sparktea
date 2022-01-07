@@ -28,9 +28,7 @@ public class Comment {
 
 
 //
-    @ManyToOne
-    @JoinColumn(name = "userid")
-    private User user;
+
 //    public User getUser() {
 //        return user;
 //    }
@@ -39,9 +37,9 @@ public class Comment {
 //        this.user = user;
 //    }
 //
-    @ManyToOne
-    @JoinColumn(name = "postid")
-    private Post post;
+//    @ManyToOne
+//    @JoinColumn(name = "postid")
+//    private Post post;
 //    public Post getPost() {
 //        return post;
 //    }

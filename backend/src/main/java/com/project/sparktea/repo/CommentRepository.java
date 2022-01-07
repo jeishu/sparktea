@@ -7,8 +7,5 @@ import com.project.sparktea.entity.Comment;
 
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, Long> {
-
-	//void delete(Long commentId);
-
 }
 

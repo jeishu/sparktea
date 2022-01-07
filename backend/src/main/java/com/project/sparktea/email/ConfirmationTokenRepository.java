@@ -1,9 +1,8 @@
 package com.project.sparktea.email;
 
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
 
-@Repository("confirmationTokenRepository")
-public interface ConfirmationTokenRepository extends CrudRepository<ConfirmationToken, String> {
-    ConfirmationToken findByConfirmationToken(String confirmationToken);
+//@Repository("confirmationTokenRepository")
+//public interface ConfirmationTokenRepository extends CrudRepository<ConfirmationToken, String> {
+	public interface ConfirmationTokenRepository {
+ //   ConfirmationToken findByConfirmationToken(String confirmationToken);
 }

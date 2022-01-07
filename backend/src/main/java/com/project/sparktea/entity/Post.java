@@ -14,7 +14,7 @@ import java.util.Set;
 public class Post {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
 	@Column(name = "id")
     private Long id;
 	
@@ -32,10 +32,6 @@ public class Post {
 
     
 //
-	@ManyToOne
-      @JoinColumn(name = "userid")
-	//	@JsonIgnore
-    private User user;
 //    public User getUser() {
 //        return user;
 //    }
