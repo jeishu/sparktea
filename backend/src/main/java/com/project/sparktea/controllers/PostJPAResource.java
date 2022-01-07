@@ -1,4 +1,4 @@
-package com.project.sparktea.repo;
+package com.project.sparktea.controllers;
 
 import java.util.List;
 
@@ -20,27 +20,27 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class PostJPAResource {
 	
 	PostService postS;
-	
-	@GetMapping
-	public List<Post> retrieveAllPosts(){
-		return postS.getAllPosts();
-	}
-
-	@PostMapping("/create")
-	public Post createPost( @RequestBody Post post) {		
-		System.out.println(post);
-		return postS.createPost(post);
-	}
-	
-	@PostMapping("/create/userid/{id}")
-	public Post createPost( @RequestBody Post post, @RequestParam int id)  {		
-		System.out.println(post);
-		return postS.createPost(post, id);
-	}
-	
-	@DeleteMapping("/delete/id/{id}")
-	public String deletePost( @RequestParam Long id) {	
-		return postS.deletePost(id);
-	}
+//	
+//	@GetMapping
+//	public List<Post> retrieveAllPosts(){
+//		return postS.getAllPosts();
+//	}
+//
+//	@PostMapping("/create")
+//	public Post createPost( @RequestBody Post post) {		
+//		System.out.println(post);
+//		return postS.createPost(post);
+//	}
+//	
+//	@PostMapping("/create/userid/{id}")
+//	public Post createPost( @RequestBody Post post, @RequestParam int id)  {		
+//		System.out.println(post);
+//		return postS.createPost(post, id);
+//	}
+//	
+//	@DeleteMapping("/delete/id/{id}")
+//	public String deletePost( @RequestParam Long id) {	
+//		return postS.deletePost(id);
+//	}
 }
 

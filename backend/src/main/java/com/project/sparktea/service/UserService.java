@@ -19,14 +19,14 @@ public class UserService {
 		return repo.findAll();
 	}
 
-    public User userLogin(String username, String password) {
-        User loggedInUser = repo.findByUsername(username);    
-        if(loggedInUser.getPassword().equals(password)) {
-            return loggedInUser;
-        }else {
-            return null;
-        }
-    } 
+//    public User userLogin(String username, String password) {
+//        User loggedInUser = repo.findByUsername(username);    
+//        if(loggedInUser.getPassword().equals(password)) {
+//            return loggedInUser;
+//        }else {
+//            return null;
+//        }
+//    } 
     
     public User register(User user) {
 		return repo.save(user);

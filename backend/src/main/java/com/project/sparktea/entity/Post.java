@@ -32,10 +32,6 @@ public class Post {
 
     
 //
-	@ManyToOne
-      @JoinColumn(name = "userid")
-	//	@JsonIgnore
-    private User user;
 //    public User getUser() {
 //        return user;
 //    }

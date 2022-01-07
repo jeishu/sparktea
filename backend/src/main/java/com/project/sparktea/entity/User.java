@@ -1,7 +1,5 @@
 package com.project.sparktea.entity;
 
-import java.util.Objects;
-import java.util.Optional;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,28 +9,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import javax.persistence.*;
-
-import java.util.List;
-import java.util.Set;
-
-@Getter
-@Setter
-@Entity
 @Data
-@Table  (name = "users", schema = "public")
+@NoArgsConstructor
+@Entity
+@Table  (name = "users")
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue
 	@Column(name = "id")
 	private int userId;
 
@@ -57,11 +43,35 @@ public class User {
 	@Column(name = "gender")
 	private String gender;
 
-	@Column(name = "DOB")
+	@Column(name = "dob")
 	private String DOB;
+
+	public User(String userRole, String email, String firstName, String lastName, String username, String password, String gender, String dOB) {
+		super();
+		this.userRole = userRole;
+		this.email = email;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = username;
+		this.password = password;
+		this.gender = gender;
+		DOB = dOB;
+	}
 	
-	@Column(name = "enabled")
-	private boolean Enabled;
+	public User(int userid, String userRole, String email, String firstName, String lastName, String username, String password, String gender, String dOB) {
+		super();
+		this.userId = userid;
+		this.userRole = userRole;
+		this.email = email;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = username;
+		this.password = password;
+		this.gender = gender;
+		DOB = dOB;
+	}
+	
+
 	
 //	@ToString.Exclude
 //	@OneToMany(mappedBy = "users", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -73,6 +83,7 @@ public class User {
 //	@JsonIgnore
 //	private Logins logins;
 	
+
 	
 	
 	

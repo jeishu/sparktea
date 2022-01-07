@@ -11,7 +11,6 @@ import java.util.Date;
 
 
 @Entity
-
 @Table  (name = "commnts", schema = "public")
 public @Data class Comment {
 	
@@ -28,9 +27,7 @@ public @Data class Comment {
 
 
 //
-    @ManyToOne
-    @JoinColumn(name = "userid")
-    private User user;
+
 //    public User getUser() {
 //        return user;
 //    }
@@ -39,9 +36,9 @@ public @Data class Comment {
 //        this.user = user;
 //    }
 //
-    @ManyToOne
-    @JoinColumn(name = "postid")
-    private Post post;
+//    @ManyToOne
+//    @JoinColumn(name = "postid")
+//    private Post post;
 //    public Post getPost() {
 //        return post;
 //    }
