@@ -42,8 +42,8 @@ export function LoginForm(props) {
     }).catch(err => console.log(err));
 
     function redirectToHome(status) {
-      if (status === 200) navigate("/");
-      else navigate("/login-register");
+      if (status === 200) navigate("/home");
+      else navigate("/");
     }
     const sessionStorageSetItem = () => {sessionStorage.setItem("Name", name);}
   }

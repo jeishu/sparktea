@@ -15,17 +15,17 @@ export default function Topbar() {
     <div className="topbarContainer">
       <div className="topbarLeft">
         <img className="logo-image" src={Logo} alt={Logo} />
-        <Link className="logo" to="/">SparkTea</Link>
+        <Link className="logo" to="/home">SparkTea</Link>
       </div>
       <div className="topbarCenter">
       </div>
       <div className="topbarRight">
         <div className="topbarLinks">
-          <Link className={location.pathname === "/" ? "active" : "non-active"} to="/">HOME</Link>
+          <Link className={location.pathname === "/home" ? "active" : "non-active"} to="/home">HOME</Link>
           <Link className={location.pathname === "/profile" ? "active" : "non-active"} to="/profile">PROFILE</Link>
-          <Link className={location.pathname === "/login-register" ? "active" : "non-active"} to="/login-register" onClick={sessionStorageRemove}>LOGOUT</Link>
+          <Link className={location.pathname === "/" ? "active" : "non-active"} to="/" onClick={sessionStorageRemove}>LOGOUT</Link>
         </div>
-        <img src="/assets/person/1.jpeg" alt="" className="topbarImg"/>
+        <img src="/assets/logo/boy.jpeg" alt="" className="topbarImg"/>
       </div>
     </div>
   );

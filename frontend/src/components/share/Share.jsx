@@ -24,14 +24,13 @@ export default function Share() {
     }).catch(error => console.log(error))
       
     window.location.reload(true);
-
   }
 
   return (
     <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
-          <img className="shareProfileImg" src="/assets/person/1.jpeg" alt="" />
+          <img className="shareProfileImg" src="/assets/logo/boy.jpeg" alt="" />
           <input
             placeholder="What's sparking in your mind today?"
             className="shareInput"
