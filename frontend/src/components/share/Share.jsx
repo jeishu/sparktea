@@ -30,7 +30,7 @@ export default function Share() {
     <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
-          <img className="shareProfileImg" src="/assets/logo/boy.jpeg" alt="" />
+          <img className="shareProfileImg" src={require("./boy.jpeg")} alt="" />
           <input
             placeholder="What's sparking in your mind today?"
             className="shareInput"

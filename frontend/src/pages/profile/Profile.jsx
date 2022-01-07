@@ -28,12 +28,12 @@ export default function Profile() {
             <div className="profileCover">
               <img
                 className="profileCoverImg"
-                src="assets/post/3.jpeg"
+                src={require("./3.jpeg")}
                 alt=""
               />
               <img
                 className="profileUserImg"
-                src="assets/logo/boy.jpeg"
+                src={require("./boy.jpeg")}
                 alt=""
               />
             </div>

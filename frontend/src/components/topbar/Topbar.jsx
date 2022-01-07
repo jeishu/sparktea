@@ -25,7 +25,7 @@ export default function Topbar() {
           <Link className={location.pathname === "/profile" ? "active" : "non-active"} to="/profile">PROFILE</Link>
           <Link className={location.pathname === "/" ? "active" : "non-active"} to="/" onClick={sessionStorageRemove}>LOGOUT</Link>
         </div>
-        <img src="/assets/logo/boy.jpeg" alt="" className="topbarImg"/>
+        <img src={require("./boy.jpeg")} alt="" className="topbarImg"/>
       </div>
     </div>
   );
