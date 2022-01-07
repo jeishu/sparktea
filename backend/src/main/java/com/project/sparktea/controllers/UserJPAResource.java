@@ -38,26 +38,21 @@ public class UserJPAResource { //User controller
 		userR.save(u);
 		return "hello";
 	}
-	
-//	@GetMapping
-//	public List<User> retrieveAllUsers(){
-//		return userS.getAllUsers();
-//	}
+
+	@PostMapping("/login")
+    public User userLogin(@RequestBody User user) {
+       return userS.userLogin(user.getUsername(), user.getPassword());
+    } 
 //	
-//	@PostMapping("/login")
-//    public User userLogin(@RequestBody User user) {
-//       return userS.userLogin(user.getUsername(), user.getPassword());
-//    } 
+	@PostMapping("/register")
+	public User createUser( @RequestBody User user) {
+		return userS.register(user);
+	}
 //	
-//	@PostMapping("/register")
-//	public User createUser( @RequestBody User user) {
-//		return userS.register(user);
-//	}
-//	
-//	@GetMapping("/id/{id}")
-//	public User findByID(@PathVariable int id) {
-//		return userS.getUserByID(id);
-//	}
+	@GetMapping("/id/{id}")
+	public User findByID(@PathVariable Integer id) {
+		return userS.getUserByID(id);
+	}
 	
 //	@GetMapping("/username/{username}")
 //	public User findByUsername(@PathVariable String username) {

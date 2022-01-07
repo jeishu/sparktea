@@ -12,35 +12,38 @@ import com.project.sparktea.entity.Post;
 import com.project.sparktea.service.PostService;
 
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 
-@RestController("/posts")
+@RestController
+@RequestMapping("/posts")
 @CrossOrigin("*")
 public class PostJPAResource {
 	
+	@Autowired
 	PostService postS;
-//	
-//	@GetMapping
-//	public List<Post> retrieveAllPosts(){
-//		return postS.getAllPosts();
-//	}
-//
-//	@PostMapping("/create")
-//	public Post createPost( @RequestBody Post post) {		
-//		System.out.println(post);
-//		return postS.createPost(post);
-//	}
-//	
-//	@PostMapping("/create/userid/{id}")
-//	public Post createPost( @RequestBody Post post, @RequestParam int id)  {		
-//		System.out.println(post);
-//		return postS.createPost(post, id);
-//	}
-//	
-//	@DeleteMapping("/delete/id/{id}")
-//	public String deletePost( @RequestParam Long id) {	
-//		return postS.deletePost(id);
-//	}
+	
+	@GetMapping
+	public List<Post> retrieveAllPosts(){
+		return postS.getAllPosts();
+	}
+
+	@PostMapping("/create")
+	public Post createPost( @RequestBody Post post) {		
+		System.out.println(post);
+		return postS.createPost(post);
+	}
+	
+	@PostMapping("/create/userid/{id}")
+	public Post createPost( @RequestBody Post post, @RequestParam int id)  {		
+		System.out.println(post);
+		return postS.createPost(post, id);
+	}
+	
+	@DeleteMapping("/delete/id/{id}")
+	public String deletePost( @RequestParam Long id) {	
+		return postS.deletePost(id);
+	}
 }
 
