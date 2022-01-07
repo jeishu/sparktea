@@ -30,12 +30,12 @@ export default function Post() {
 
   return (
     <>
-      {posts.map(({contnt, date, id}) => (
+      {posts.map(({contnt, dat, id}) => (
         <div className="post" key={id}>
           <div className="postWrapper">
             <div className="postTop">
               <p>{contnt}</p>
-              <p>{date}</p>
+              <p>{dat}</p>
             </div>
           </div>
         </div>

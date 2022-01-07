@@ -56,8 +56,11 @@ function registerFormData(){
   function redirectTologin(status){
 
     if(status === 200){
-      navigate("/");
-    }else alert("Sorry Wrong login")
+      navigate("/login-register");
+    }else {
+      navigate("/login-register")
+      alert("Sorry Wrong login")
+    }
   }
 }
 

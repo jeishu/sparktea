@@ -57,8 +57,12 @@ export function LoginForm(props) {
     function redirectToHome(status) {
 
       if (status === 200) {
-        navigate("/pages/home/Home");
-      } else alert("Sorry Wrong login")
+        navigate("/");
+      } else {
+        navigate("/login-register");
+
+        alert("Sorry Wrong login");
+      }
     }
   }
 

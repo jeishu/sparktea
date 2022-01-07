@@ -5,14 +5,32 @@ import axios from "axios";
 export default function Share() {
   const [values,setValues] = useState({contnt:""});
   // const [user,setUser] = useState({ })
-  // const [date,setDate] = useState({dat:""});
+  const [date,setDate] = useState({dat:""});
 
-  const handleTextChange= (event) => {setValues({...values,contnt: event.target.value})}
-  // const handleTextChange= (event) => {setValues({...date,dat: value.contnt, dat: date})}
+  var today = new Date();
+  var dates = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  var dateTime = dates+' '+time;
+
+  console.log(typeof dateTime);
+
+  const handleTextChange= (event) => {
+    setValues({
+      ...values,
+      contnt: event.target.value
+    });
+    setDate({
+      ...date, 
+      dat:dateTime 
+    });
+  }
   
   function registerTextData(){
-    axios.post("http://localhost:7070/posts/create",{contnt:values.contnt})
-    .then(response =>{console.log(response.status)}).catch(error => console.log(error))
+    axios.post("http://localhost:7070/posts/create",{
+      contnt:values.contnt,
+      dat:date.dat
+    }).then(response =>{console.log(response.status)})
+    .catch(error => console.log(error))
   }
 
   return (

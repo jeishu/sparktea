@@ -2,8 +2,23 @@ import "./profile.css";
 import Topbar from "../../components/topbar/Topbar";
 import Feed from "../../components/feed/Feed";
 import Uploader from "../../components/imageUploader/Uploader";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function Profile() {
+
+  const [profi, setProfi] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:7070/users/id/{id}",)
+      .then(response => {
+        setProfi(response.data);
+        // console.log(response.data.);
+      })
+      .catch(err => console.log(err))
+  }, [])
+  console.log(profi);
+
   return (
     <>
       <Topbar />
@@ -29,7 +44,21 @@ export default function Profile() {
           </div>
           <div className="profileRightBottom">
             {/* <Feed /> */}
-            <Uploader/>
+            <Uploader />
+
+            {profi.map(({ id, username, firstname, lastname, email }) => (
+              <div className="profi" key={id}>
+                <div className="profiWrapper">
+                  <div className="profiTop">
+                    <p>{username}</p>
+                    <p>{firstname}</p>
+                    <p>{lastname}</p>
+                    <p>{email}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+
           </div>
         </div>
       </div>
