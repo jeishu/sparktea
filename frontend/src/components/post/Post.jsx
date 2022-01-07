@@ -6,6 +6,18 @@ import axios from "axios";
 export default function Post() {
   const [posts, setPosts] = useState([]);
 
+  // useEffect(()=> {
+  //   fetch('http://localhost:7070/post', {
+  //     method: "POST",
+  //     mode: "same-origin"
+  //   }).then(
+  //     result => {
+  //       setPosts(result.data)
+  //       console.log(result);
+  //     }
+  //   ).catch(err => console.log(err));
+  // },[])
+
   useEffect( () => {
      axios.get("http://localhost:7070/posts",)
       .then(response => {

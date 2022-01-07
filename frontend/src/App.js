@@ -10,23 +10,16 @@ import "./scss/index.scss";
 import Uploader from "./components/imageUploader/Uploader"
 
 function App() {
-
-  //check for loggin
-
+  
   return (
     <div className="App">
-      <Uploader/>
-
-      {/* <LoginSignUp /> */}
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LoginSignUp />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
-          {/* <Route path="/pages/register/Register" element={<Register />} /> */}
+          <Route path="/" element={<Home />}/>
+          <Route path="/profile" element={<Profile />}/>
+          <Route path="/login-register" element={<LoginSignUp/>} />
         </Routes>
-      </BrowserRouter>          
-
+      </BrowserRouter>
     </div>
   )
 }

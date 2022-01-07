@@ -22,7 +22,7 @@ export function LoginForm(props) {
     password: ''
   });
 
-  // let navigate = useNavigate();
+  let navigate = useNavigate();
 
   const handleUsername = (event) => {
     setValues({ ...values, username: event.target.value })
@@ -32,30 +32,39 @@ export function LoginForm(props) {
   }
   function loginFormData() {
 
+    // fetch('http://localhost:7070/users/login', {
+    //   method: "POST"
+    // })
+    // .then(response => response.json())
+    // .then(
+    //   result => {
+    //     setValues(result)
+    //     console.log(result);
+    //   }
+    // )
+    // .catch(err => console.log(err));
+    
+
     axios.post('http://localhost:7070/users/login', {
       username: values.username,
       password: values.password
     })
-      .then(res => {
-        redirectToHome(res.status)
-      }).catch(err => console.log(err))
+    .then(res => {
+      redirectToHome(res.status)
+    }).catch(err => console.log(err))
 
 
     function redirectToHome(status) {
 
       if (status === 200) {
-
-        // navigate("/pages/home/Home");
-
-
+        navigate("/pages/home/Home");
       } else alert("Sorry Wrong login")
     }
-
   }
 
-  function routeToRegister() {
-    // navigate("/pages/register/Register")
-  }
+  // function routeToRegister() {
+  //   navigate("/pages/register/Register")
+  // }
 
   return (
     <BoxContainer>
