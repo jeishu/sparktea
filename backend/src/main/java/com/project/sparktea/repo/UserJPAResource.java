@@ -46,6 +46,42 @@ public class UserJPAResource {
 		return statush;
 	}
 	
+	
+	/*
+	 * 
+	 * @PostMapping("/users/login")
+	public HttpStatus userLogin(@RequestBody Users user) {
+		HttpStatus status = HttpStatus.BAD_REQUEST;
+		String usernameJs =user.getUsername();
+		String passwordJs = user.getPassword();
+		List<Users> loggedInUser = userRepository.findByUsername(usernameJs);
+		for(Users u: loggedInUser) {
+			if(u.getPassword().equals(passwordJs)) {
+				status = HttpStatus.OK;
+			}else {
+				status = HttpStatus.BAD_GATEWAY;
+			   	
+			}
+		}
+		return status;
+		
+	
+	
+}
+
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
+	
+	
+	
+	
+	
+	
 //	@GetMapping("/username/{username}")
 //	public User findByUsername(@PathVariable String username) {
 //		return new User();

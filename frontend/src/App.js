@@ -7,6 +7,7 @@ import {
   Routes
 } from "react-router-dom";
 import "./scss/index.scss";
+import Uploader from "./components/imageUploader/Uploader"
 
 function App() {
 
@@ -14,6 +15,8 @@ function App() {
 
   return (
     <div className="App">
+      <Uploader/>
+
       {/* <LoginSignUp /> */}
       <BrowserRouter>
         <Routes>
