@@ -1,9 +1,6 @@
 import "./share.css";
 import { useState } from "react";
 import axios from "axios"; 
-import Uploader from "../imageUploader/Uploader";
-
-
 
 export default function Share() {
   const [values,setValues] = useState({contnt:""});
@@ -34,11 +31,9 @@ export default function Share() {
         <div className="shareBottom">
             <div className="shareOptions">
                 <div className="shareOption">
-                    <Uploader/> 
-                </div>
-                <button onClick={registerTextData} className="shareButton">Spark</button>
+                    <button onClick={registerTextData} className="shareButton">Spark</button>
+                </div>            
             </div>
-           
         </div>
       </div>
     </div>

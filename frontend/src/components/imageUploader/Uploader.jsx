@@ -1,5 +1,5 @@
 import React from 'react'
-// import 'react-dropzone-uploader/dist/styles.css'
+import 'react-dropzone-uploader/dist/styles.css'
 import Dropzone from 'react-dropzone-uploader'
 import axios from 'axios'
 import "./uploader.scss";
@@ -40,9 +40,9 @@ const Uploader = () => {
             maxFiles={1}
             multiple={false}
             canCancel={false}
-            inputContent=""
+            inputContent="Drag or upload image here"
             styles={{
-                dropzone: { width: 400, height: 200 },
+                dropzone: { width: 300, height: 100 },
                 dropzoneActive: { borderColor: 'green' },
             }}
             />
