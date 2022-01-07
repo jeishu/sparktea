@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 
-@RestController("comments")
+@RestController("/comments")
 @CrossOrigin("*")
 public class CommentJPAResource {
 	
 	CommentService comS;
 
 	@GetMapping
-	public List<Comment> retrieveAllComment(){
+	public List<Comment> retrieveAllComments(){
 		return comS.getAllComments();
 	}
 
@@ -31,9 +31,9 @@ public class CommentJPAResource {
 		return comS.createComment(comment);
 	}
 
-@DeleteMapping("/delete/id/{id}")
-public String createComment( @RequestParam Long id) {	
-	return comS.deleteComment(id);
-}
+	@DeleteMapping("/delete/id/{id}")
+	public String createComment( @RequestParam Long id) {	
+		return comS.deleteComment(id);
+	}
 }
 
