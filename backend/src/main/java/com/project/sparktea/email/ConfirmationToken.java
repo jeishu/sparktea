@@ -17,10 +17,11 @@ import javax.persistence.TemporalType;
 
 import com.project.sparktea.entity.User;
 
-import lombok.Getter;
-import lombok.Setter;
-@Getter
-@Setter
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name="confirmationToken")
 public class ConfirmationToken {
@@ -40,13 +41,10 @@ public class ConfirmationToken {
     @JoinColumn(nullable = false, name = "user_id")
     private User userEntity;
 
-    public ConfirmationToken() {}
-
     public ConfirmationToken(User userEntity) {
         this.userEntity = userEntity;
         createdDate = new Date();
         confirmationToken = UUID.randomUUID().toString();
     }
 
-    // getters and setters
 }
