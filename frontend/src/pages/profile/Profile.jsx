@@ -5,7 +5,7 @@ import Feed from "../../components/feed/Feed";
 import Uploader from "../../components/imageUploader/Uploader";
 import axios from "axios";
 import Boy from "./boy.png";
-import BG from "./3.jpeg";
+import BG from "./3.png";
 
 
 export default function Profile() {
