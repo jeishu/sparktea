@@ -9,8 +9,10 @@ import com.project.sparktea.entity.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer>{
 
+
 	public User findByUsername(String username);
-	 User findByEmailIdIgnoreCase(String emailId);
+	
+	User findByEmailIdIgnoreCase(String emailId);
 
 //	public User findOne(Long userId);
 //	Optional<User> findByEmail( String email);

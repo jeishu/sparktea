@@ -1,6 +1,7 @@
 package com.project.sparktea.email;
 
 import java.util.Date;
+
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -19,6 +20,7 @@ import com.project.sparktea.entity.User;
 
 import lombok.Getter;
 import lombok.Setter;
+
 @Getter
 @Setter
 @Entity

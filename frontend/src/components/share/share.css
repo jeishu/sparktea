@@ -48,11 +48,14 @@
 .shareOptions{
     display: flex;
     margin-left: 20px;
+    width: 100%;
 }
 
 .shareOption{
+    width: 100%;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     margin-right: 15px;
     cursor: pointer;
 }

@@ -19,6 +19,7 @@ public class UserJPAResource {
 	
 	@Autowired
 	private UserRepository userRepository;
+	static public User user;
 	
 	@GetMapping("/users")
 	public List<User> retrieveAllUsers(){
@@ -31,19 +32,32 @@ public class UserJPAResource {
 		return savedUser;
 	}
 	
+//	@PostMapping("/users/login")
+//	public HttpStatus userLogin(@RequestBody User user) {
+//		HttpStatus statush = null;
+//		String usernameJs =user.getUsername();
+//		String passwordJs=user.getPassword();
+//		User loggedInUser = userRepository.findByUsername(usernameJs);
+//		
+//		if(loggedInUser.getPassword().equals(passwordJs)) {
+//			statush= HttpStatus.OK;
+//		}else {
+//			statush= HttpStatus.BAD_REQUEST;
+//		}
+//		return statush;
+//	}
+	
 	@PostMapping("/users/login")
-	public HttpStatus userLogin(@RequestBody User user) {
-		HttpStatus statush = null;
-		String usernameJs =user.getUsername();
-		String passwordJs=user.getPassword();
-		User loggedInUser = userRepository.findByUsername(usernameJs);
+	public User userLogin(@RequestBody User user) {
+		String username = user.getUsername();
+		String password = user.getPassword();
+		User loggedInUser = userRepository.findByUsername(username);
 		
-		if(loggedInUser.getPassword().equals(passwordJs)) {
-			statush= HttpStatus.OK;
+		if(loggedInUser.getPassword().equals(password)) {
+			return user;
 		}else {
-			statush= HttpStatus.BAD_REQUEST;
+			return null;
 		}
-		return statush;
 	}
 	
 //	@GetMapping("/username/{username}")

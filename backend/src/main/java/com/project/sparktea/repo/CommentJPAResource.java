@@ -11,6 +11,7 @@ import com.project.sparktea.entity.Comment;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PostMapping;
 
+//This is a Controller
 @RestController
 @CrossOrigin("*")
 public class CommentJPAResource {

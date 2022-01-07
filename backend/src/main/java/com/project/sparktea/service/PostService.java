@@ -1,15 +1,12 @@
 package com.project.sparktea.service;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.sparktea.entity.Post;
-import com.project.sparktea.entity.User;
 import com.project.sparktea.repo.PostRepository;
 import com.project.sparktea.repo.UserRepository;
 
-import java.util.Date;
 import java.util.List;
 
 @Service

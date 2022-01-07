@@ -12,6 +12,7 @@ import com.project.sparktea.entity.Post;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PostMapping;
 
+//This is a controller
 @RestController
 @CrossOrigin("*")
 public class PostJPAResource {

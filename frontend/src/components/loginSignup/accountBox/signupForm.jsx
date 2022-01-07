@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom";
 export function SignupForm(props) {
   const { switchToSignin } = useContext(AccountContext);
 
-  // let navigate = useNavigate();
+  let navigate = useNavigate();
 
   const [values, setValues] = useState({
     firstName: '',
@@ -56,10 +56,7 @@ function registerFormData(){
   function redirectTologin(status){
 
     if(status === 200){
-      
-      // navigate("/");
-    
-  
+      navigate("/");
     }else alert("Sorry Wrong login")
   }
 }

@@ -3,6 +3,7 @@ package com.project.sparktea.email;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,6 +13,7 @@ import com.project.sparktea.entity.User;
 import com.project.sparktea.repo.UserRepository;
 
 @Controller
+@CrossOrigin("*")
 public class UserAccountController {
 
     @Autowired
@@ -31,11 +33,8 @@ public class UserAccountController {
         return modelAndView;
     }
     
-    
-    
     @RequestMapping(value="/register", method = RequestMethod.POST)
-    public ModelAndView registerUser(ModelAndView modelAndView, User userEntity)
-    {
+    public ModelAndView registerUser(ModelAndView modelAndView, User userEntity) {
 
     	User existingUser = userRepository.findByEmailIdIgnoreCase(userEntity.getEmail());
         if(existingUser != null)
