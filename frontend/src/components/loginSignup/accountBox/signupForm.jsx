@@ -22,47 +22,31 @@ export function SignupForm(props) {
     lastName: '',
     email: '',
     username: '',
-    password:''
+    password: ''
   });
 
-  const handleFirstName = (event) =>{
-    setValues({...values, firstName: event.target.value})
-  }
-  const handleLastName = (event) =>{
-    setValues({...values, lastName: event.target.value})
-  }
-  const handleEmail = (event) =>{
-    setValues({...values, email: event.target.value})
-  }
-  const handleUsername = (event) =>{
-    setValues({...values, username: event.target.value})
-  }
-  const handlePassword = (event) =>{
-    setValues({...values, password: event.target.value})
-  }
-function registerFormData(){
+  const handleFirstName = (event) => setValues({ ...values, firstName: event.target.value });
+  const handleLastName = (event) => setValues({ ...values, lastName: event.target.value });
+  const handleEmail = (event) => setValues({ ...values, email: event.target.value });
+  const handleUsername = (event) => setValues({ ...values, username: event.target.value });
+  const handlePassword = (event) => setValues({ ...values, password: event.target.value });
 
-    axios.post('http://localhost:7070/users/register',{
+  const registerFormData = () => {
+    axios.post('http://localhost:7070/users/register', {
       firstName: values.firstName,
       lastName: values.lastName,
       email: values.email,
       username: values.username,
       password: values.password
-    })
-    .then(response => {redirectTologin(response.status)
-  }).catch(err => console.log(err))
+    }).then(response => {
+        redirectTologin(response.status)
+    }).catch(err => console.log(err))
 
-
-  function redirectTologin(status){
-
-    if(status === 200){
-      navigate("/login-register");
-    }else {
-      navigate("/login-register")
-      alert("Sorry Wrong login")
+    const redirectTologin = (status) => {
+      if (status === 200) navigate("/login-register");
+      else navigate("/login-register");
     }
   }
-}
 
   return (
     <BoxContainer>

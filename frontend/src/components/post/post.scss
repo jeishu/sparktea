@@ -1,0 +1,29 @@
+.post {
+  width: 50%;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+  box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+  margin: 10px auto;
+}
+
+.postWrapper {
+  padding: 20px;
+}
+
+.postTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .content{
+    font-size: 14px;
+  }
+  .date {
+    font-size: 14px;
+  }
+}
+
+
+.post-container{
+  display: flex;
+  flex-direction: column-reverse;
+}

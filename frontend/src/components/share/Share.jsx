@@ -1,36 +1,30 @@
 import "./share.css";
 import { useState } from "react";
-import axios from "axios"; 
+import axios from "axios";
+import moment from "moment";
 
 export default function Share() {
-  const [values,setValues] = useState({contnt:""});
-  // const [user,setUser] = useState({ })
-  const [date,setDate] = useState({dat:""});
+  const [values, setValues] = useState({ contnt: "", dat: "" });
 
-  var today = new Date();
-  var dates = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  var dateTime = dates+' '+time;
+  let time = moment().format("MMM Do YYYY, h:mm a");
+  console.log(time)
 
-  console.log(typeof dateTime);
-
-  const handleTextChange= (event) => {
-    setValues({
-      ...values,
-      contnt: event.target.value
-    });
-    setDate({
-      ...date, 
-      dat:dateTime 
-    });
+  const handleTextChange = (event) => {
+    setValues({...values, contnt: event.target.value, dat: time});
+    console.log(values)
   }
-  
-  function registerTextData(){
-    axios.post("http://localhost:7070/posts/create",{
-      contnt:values.contnt,
-      dat:date.dat
-    }).then(response =>{console.log(response.status)})
-    .catch(error => console.log(error))
+
+  const registerTextData = () => {
+    axios.post("http://localhost:7070/posts/create", {
+      contnt: values.contnt,
+      date: values.dat
+    }).then(response => {
+      console.log(response.status)
+      console.log(response.data)
+    }).catch(error => console.log(error))
+      
+    window.location.reload(true);
+
   }
 
   return (
@@ -45,13 +39,13 @@ export default function Share() {
             onChange={handleTextChange}
           />
         </div>
-        <hr className="shareHr"/>
+        <hr className="shareHr" />
         <div className="shareBottom">
-            <div className="shareOptions">
-                <div className="shareOption">
-                    <button onClick={registerTextData} className="shareButton">Spark</button>
-                </div>            
+          <div className="shareOptions">
+            <div className="shareOption">
+              <button onClick={registerTextData} className="shareButton">Spark</button>
             </div>
+          </div>
         </div>
       </div>
     </div>
