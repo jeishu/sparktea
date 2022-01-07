@@ -1,6 +1,8 @@
 package com.project.sparktea.service;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +14,10 @@ public class UserService {
 
     @Autowired
     private UserRepository repo;
-
-    public User createUser(User user) {
-        return repo.save(user);
-    }
+    
+    public List<User> getAllUsers(){
+		return repo.findAll();
+	}
 
     public User userLogin(String username, String password) {
         User loggedInUser = repo.findByUsername(username);    
