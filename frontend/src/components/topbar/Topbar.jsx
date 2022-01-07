@@ -1,7 +1,7 @@
 import "./topbar.scss";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "./logo.png";
-import Boy from "./boy.jpeg";
+import Boy from "./boy.png";
 
 export default function Topbar() {
   const location = useLocation();

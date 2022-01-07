@@ -4,7 +4,7 @@ import Topbar from "../../components/topbar/Topbar";
 import Feed from "../../components/feed/Feed";
 import Uploader from "../../components/imageUploader/Uploader";
 import axios from "axios";
-import Boy from "./boy.jpeg";
+import Boy from "./boy.png";
 import BG from "./3.jpeg";
 
 
@@ -31,8 +31,8 @@ export default function Profile() {
             <div className="profileCover">
               <img
                 className="profileCoverImg"
-                src={3}
-                alt={3}
+                src={BG}
+                alt={BG}
               />
               <img
                 className="profileUserImg"

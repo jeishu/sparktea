@@ -43,8 +43,14 @@ export function SignupForm(props) {
     }).catch(err => console.log(err))
 
     const redirectTologin = (status) => {
-      if (status === 200) navigate("/");
-      else navigate("/");
+      if (status === 200) {
+        window.location.reload(true);
+        navigate("/")
+      } else {
+        window.location.reload(true);
+        navigate("/");
+      }
+      
     }
   }
 

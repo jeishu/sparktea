@@ -2,7 +2,7 @@ import "./share.css";
 import { useState } from "react";
 import axios from "axios";
 import moment from "moment";
-import Boy from "./boy.jpeg";
+import Boy from "./boy.png";
 
 export default function Share() {
   const [values, setValues] = useState({ contnt: "", dat: "" });
