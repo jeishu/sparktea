@@ -1,5 +1,7 @@
 package com.project.sparktea.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,10 +36,15 @@ public class UserService {
 		System.out.println(u);
 		return u;
     }
+    
+    public User getUserByUsername(String username) {
+		User u = repo.findByUsername(username);
+		System.out.println(u);
+		return u;
+    }
 
     
-    
-    
+        
 //    public Following follow(Long userId, Long followId) throws Exception {
 //        User user = repo.findOne(userId);
 //        User follow = repo.findOne(followId);

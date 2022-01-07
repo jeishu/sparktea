@@ -7,7 +7,7 @@ import "./uploader.scss";
 const Uploader = () => {
     const API_ENDPOINT = "https://kicko26hfd.execute-api.us-east-2.amazonaws.com/default/getPresignedImageURL"
   
-    const handleChangeStatus = ({ meta, remove }, status) => {
+    const handleChangeStatus = ({ meta }, status) => {
         console.log(status, meta);
     }
 
@@ -33,14 +33,14 @@ const Uploader = () => {
     }
 
     return (
-        <div className="photo-uploader">
+        <div>
             <Dropzone
             onChangeStatus={handleChangeStatus}
             onSubmit={handleSubmit}
             maxFiles={1}
             multiple={false}
             canCancel={false}
-            inputContent="Drag or upload image here"
+            inputContent="Upload a new profile picture"
             styles={{
                 dropzone: { width: 300, height: 100 },
                 dropzoneActive: { borderColor: 'green' },

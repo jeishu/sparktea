@@ -1,9 +1,24 @@
-import "./profile.css";
+import { useState, useEffect } from "react";
+import "./profile.scss";
 import Topbar from "../../components/topbar/Topbar";
 import Feed from "../../components/feed/Feed";
 import Uploader from "../../components/imageUploader/Uploader";
+import axios from "axios";
 
 export default function Profile() {
+  const [profi, setProfi] = useState([]);
+
+  let username = sessionStorage.getItem("Name");
+
+  useEffect(() => {
+    axios.get(`http://localhost:7070/users/username/${username}`,)
+      .then(response => {
+        setProfi(response.data);
+      })
+      .catch(err => console.log(err))
+  }, [])
+  console.log(profi);
+
   return (
     <>
       <Topbar />
@@ -23,13 +38,23 @@ export default function Profile() {
               />
             </div>
             <div className="profileInfo">
-              <h4 className="profileInfoName">Safak Kocaoglu</h4>
-              <span className="profileInfoDesc">Hello my friends!</span>
+              <h4 className="profileInfoName">{profi.firstName} {profi.lastName}</h4>
+              <span className="profileInfoDesc">Green tea is the best tea!</span>
             </div>
           </div>
           <div className="profileRightBottom">
-            {/* <Feed /> */}
-            <Uploader/>
+            <div className="profi">
+              <div className="profiWrapper">
+                <div className="profiTop">
+                  <h3>Profile Information</h3>
+                  <p>First Name: <span>{profi.firstName}</span> </p>
+                  <p>Last Name: <span>{profi.lastName}</span></p>
+                  <p>Username: <span>{profi.username}</span></p>
+                  <p>Email: <span>{profi.email}</span></p>
+                </div>
+                <Uploader/>
+              </div>
+            </div>
           </div>
         </div>
       </div>
