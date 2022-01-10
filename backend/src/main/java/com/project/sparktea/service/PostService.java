@@ -29,7 +29,7 @@ public class PostService {
     
     public Optional<Post> getPostByID(Long id) {
         return postRepo.findById(id);
-     }
+    }
      
 	public Post createPost( Post post) {
 		return postRepo.save(post);
@@ -43,13 +43,9 @@ public class PostService {
     	}
     }
 
-    public String deletePost(Long postId) {
-      postRepo.deleteById(postId);
-       if(getPostByID(postId)==null) {
-    	   return "success";
-       }else {
-    	   return "unable to perform request";
-       }
+    public void deleteById(Long id) {
+    	 postRepo.deleteById(id);
+
     }
 
 //    public Post updatePost(Post post, Long id) throws Exception {

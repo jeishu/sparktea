@@ -21,7 +21,9 @@ export function LoginForm(props) {
     username: '',
     password: ''
   });
-  const [name, setName] = useState("");
+  console.log("Before Axios:"+ values.username)
+
+  const [name, setName] = useState(""); // session storage
   let navigate = useNavigate();
 
   const handleUsername = (event) => {
@@ -33,12 +35,13 @@ export function LoginForm(props) {
 
   function loginFormData() {
     axios.post('http://localhost:7070/users/login', {
+      ...setValues,
       username: values.username,
       password: values.password
     }).then(res => {
         redirectToHome(res.status);
         sessionStorageSetItem();
-        //console.log(name)
+        console.log("Inside Axios:"+ values.username)
     }).catch(err => console.log(err));
 
     function redirectToHome(status) {
@@ -47,6 +50,8 @@ export function LoginForm(props) {
     }
     const sessionStorageSetItem = () => {sessionStorage.setItem("Name", name);}
   }
+  console.log("Outside Axios:" + values.username)
+
 
   return (
     <BoxContainer>

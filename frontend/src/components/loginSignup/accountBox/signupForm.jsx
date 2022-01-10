@@ -50,7 +50,6 @@ export function SignupForm(props) {
         window.location.reload(true);
         navigate("/");
       }
-      
     }
   }
 

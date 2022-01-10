@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.sparktea.entity.Post;
@@ -41,9 +42,15 @@ public class PostJPAResource {
 		return postS.createPost(post, id);
 	}
 	
-	@DeleteMapping("/delete/id/{id}")
-	public String deletePost( @RequestParam Long id) {	
-		return postS.deletePost(id);
-	}
+//	@DeleteMapping("/delete/{id}")
+//	public String deletePost( @PathVariable Long id) {	
+//		return postS.deletePost(id);
+//	}
+	
+	@DeleteMapping("/delete/{id}")
+    public void deletePost(@PathVariable Long id) {
+         postS.deleteById(id);
+    }
+
 }
 

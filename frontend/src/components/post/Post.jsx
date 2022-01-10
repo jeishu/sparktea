@@ -12,6 +12,16 @@ export default function Post() {
       .catch(err => console.log(err))
   }, [])
 
+  const deleteTextData = (id) =>{
+    axios.delete(`http://localhost:7070/posts/delete/${id}`)
+    .then(response => {
+      console.log(response.status)
+      console.log(response.data)
+    }).catch(error => console.log(error))
+      
+    window.location.reload(true);  
+  }
+
   return (
     <>
       <div className="post-container">
@@ -21,6 +31,7 @@ export default function Post() {
               <div className="postTop">
                 <p className="content">{contnt}</p>
                 <p className="date">{date}</p>
+                <button className="deleteButton" onClick={() => deleteTextData(id)}>X</button>
               </div>
             </div>
           </div>
