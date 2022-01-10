@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import "./profile.scss";
 import Topbar from "../../components/topbar/Topbar";
-import Feed from "../../components/feed/Feed";
 import Uploader from "../../components/imageUploader/Uploader";
 import axios from "axios";
 import Boy from "./boy.png";
@@ -10,6 +9,15 @@ import BG from "./3.png";
 
 export default function Profile() {
   const [profi, setProfi] = useState([]);
+  const [update, setUpdate] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    username: '',
+    password: '',
+    gender: '',
+    dob: '',
+  });
 
   let username = sessionStorage.getItem("Name");
 
@@ -20,7 +28,24 @@ export default function Profile() {
       })
       .catch(err => console.log(err))
   }, [])
-  console.log(profi);
+
+  //Update(put) request for updating user profile
+  const handleUpdateUser = () => {
+    axios.put(`http://localhost:7070/users/update/${username}`,{
+      ...setUpdate,
+      firstName: '',
+      lastName: '',
+      username: '',
+      email: '',
+      dob: '',
+      gender: ''
+    })
+    .then(response => {
+
+      })
+    .catch(err => console.log(err))
+  }
+
 
   return (
     <>
@@ -29,16 +54,8 @@ export default function Profile() {
         <div className="profileRight">
           <div className="profileRightTop">
             <div className="profileCover">
-              <img
-                className="profileCoverImg"
-                src={BG}
-                alt={BG}
-              />
-              <img
-                className="profileUserImg"
-                src={Boy}
-                alt={Boy}
-              />
+              <img className="profileCoverImg" src={BG} alt={BG} />
+              <img className="profileUserImg" src={Boy} alt={Boy} />
             </div>
             <div className="profileInfo">
               <h4 className="profileInfoName">{profi.firstName} {profi.lastName}</h4>
@@ -54,9 +71,17 @@ export default function Profile() {
                   <p>Last Name: <span>{profi.lastName}</span></p>
                   <p>Username: <span>{profi.username}</span></p>
                   <p>Email: <span>{profi.email}</span></p>
+                  <p>Gender: <span>{profi.gender}</span></p>
+                  <p>DOB: <span>{profi.dob}</span></p>
+                  <button className="edit-profile-button">Edit Profile</button>
                 </div>
                 <Uploader/>
               </div>
+            </div>
+            <div>
+              <form>
+                <input type="text" value={update.firstName} onChange={e => setUpdate()} />
+              </form>
             </div>
           </div>
         </div>

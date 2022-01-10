@@ -42,11 +42,6 @@ public class PostJPAResource {
 		return postS.createPost(post, id);
 	}
 	
-//	@DeleteMapping("/delete/{id}")
-//	public String deletePost( @PathVariable Long id) {	
-//		return postS.deletePost(id);
-//	}
-	
 	@DeleteMapping("/delete/{id}")
     public void deletePost(@PathVariable Long id) {
          postS.deleteById(id);

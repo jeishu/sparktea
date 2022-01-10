@@ -15,6 +15,7 @@ import com.project.sparktea.service.UserService;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 
 @RestController
@@ -58,6 +59,17 @@ public class UserJPAResource { //User controller
 	@GetMapping("/username/{username}")
 	public User getUserbyUsername(@PathVariable String username) {
 		return userS.getUserByUsername(username);
+	}
+	
+	@PutMapping("/update/{username}")
+	public void updateUserInfo(@PathVariable String username) {
+		User newUser = new User();
+		 userS.updateUser(newUser.getUsername(),
+						 newUser.getFirstName(), 
+						 newUser.getLastName(),
+						 newUser.getEmail(),
+						 newUser.getDOB(),
+						 newUser.getGender());
 	}
 	
 }

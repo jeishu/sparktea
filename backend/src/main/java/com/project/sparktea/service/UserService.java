@@ -43,7 +43,18 @@ public class UserService {
 		return u;
     }
 
-    
+
+	public void updateUser(String username, String firstName, String lastName, 
+			String email, String dob, String gender) {
+		User u = repo.findByUsername(username);
+		u.setUsername(username);
+		u.setFirstName(firstName);
+		u.setLastName(lastName);
+		u.setEmail(email);
+		u.setDOB(dob);
+		u.setGender(gender);
+		repo.save(u);
+	}
         
 //    public Following follow(Long userId, Long followId) throws Exception {
 //        User user = repo.findOne(userId);

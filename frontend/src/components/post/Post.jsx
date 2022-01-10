@@ -29,10 +29,10 @@ export default function Post() {
           <div className="post" key={id}>
             <div className="postWrapper">
               <div className="postTop">
-                <p className="content">{contnt}</p>
                 <p className="date">{date}</p>
-                <button className="deleteButton" onClick={() => deleteTextData(id)}>X</button>
+                <button className="delete-button" onClick={() => deleteTextData(id)}>X</button>
               </div>
+              <p className="content">{contnt}</p>
             </div>
           </div>
         ))}
