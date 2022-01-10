@@ -10,7 +10,7 @@ const BoxContainer = styled.div`
   min-height: 568px;
   display: flex;
   flex-direction: column;
-  background-color: #313131;
+  background-color: #ffffff;
   box-shadow: 0 0 2px rgba(162, 162, 162, 0.28);
   position: relative;
   overflow: hidden;
@@ -57,8 +57,8 @@ const BackDrop = styled(motion.div)`
   flex-direction: column;
   border-radius: 50%;
   transform: rotate(60deg);
-  top: -290px;
-  left: -70px;
+  top: -300px;
+  left: -80px;
   background: rgb(0,61,255);
     background: linear-gradient(
         90deg, rgba(0,61,255,1) 0%, 
@@ -74,7 +74,7 @@ const HeaderContainer = styled.div`
 `;
 
 const HeaderText = styled.h2`
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 600;
   line-height: 1.24;
   color: #fff;
@@ -85,7 +85,7 @@ const HeaderText = styled.h2`
 const SmallText = styled.h5`
   color: #fff;
   font-weight: 500;
-  font-size: 11px;
+  font-size: 12px;
   z-index: 10;
   margin: 0;
   margin-top: 7px;
