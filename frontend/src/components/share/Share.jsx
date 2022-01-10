@@ -5,20 +5,20 @@ import moment from "moment";
 import Boy from "./boy.png";
 
 export default function Share() {
-  const [values, setValues] = useState({ contnt: "", dat: "" });
+  const [values, setValues] = useState({ content: "", date: "" });
 
   let time = moment().format("MMM Do YYYY, h:mm a");
   console.log(time)
 
   const handleTextChange = (event) => {
-    setValues({...values, contnt: event.target.value, dat: time});
+    setValues({...values, content: event.target.value, date: time});
     console.log(values)
   }
 
   const registerTextData = () => {
     axios.post("http://localhost:7070/posts/create", {
-      contnt: values.contnt,
-      date: values.dat
+      content: values.content,
+      date: values.date
     }).then(response => {
       console.log(response.status)
       console.log(response.data)
@@ -35,7 +35,7 @@ export default function Share() {
           <input
             placeholder="What's sparking in your mind today?"
             className="shareInput"
-            value={values.contnt}
+            value={values.content}
             onChange={handleTextChange}
           />
         </div>
