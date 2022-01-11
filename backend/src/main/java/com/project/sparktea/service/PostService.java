@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.sparktea.entity.Post;
+import com.project.sparktea.entity.User;
 import com.project.sparktea.repo.CommentRepository;
 import com.project.sparktea.repo.PostRepository;
 import com.project.sparktea.repo.UserRepository;
@@ -50,6 +51,12 @@ public class PostService {
        }else {
     	   return "unable to perform request";
        }
+    }
+    
+    public Post getPostByUsername(String username) {
+		Post p = postRepo.findByUsername(username);
+		System.out.println(p);
+		return p;
     }
 
 //    public Post updatePost(Post post, Long id) throws Exception {

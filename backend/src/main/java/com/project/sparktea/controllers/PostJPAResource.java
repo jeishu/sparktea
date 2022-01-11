@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.sparktea.entity.Post;
+import com.project.sparktea.entity.User;
 import com.project.sparktea.service.PostService;
 
 import org.springframework.web.bind.annotation.RequestBody;
@@ -44,6 +46,11 @@ public class PostJPAResource {
 	@DeleteMapping("/delete/id/{id}")
 	public String deletePost( @RequestParam Long id) {	
 		return postS.deletePost(id);
+	}
+	
+	@GetMapping("/username/{username}")
+	public Post getPostbyUsername(@PathVariable String username) {
+		return postS.getPostByUsername(username);
 	}
 }
 

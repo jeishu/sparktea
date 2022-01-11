@@ -2,12 +2,15 @@ package com.project.sparktea.controllers;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project.sparktea.SparkTea;
 import com.project.sparktea.entity.User;
 import com.project.sparktea.repo.UserRepository;
 import com.project.sparktea.service.UserService;
@@ -22,6 +25,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 @CrossOrigin("*")
 public class UserJPAResource { //User controller
 	
+	static Logger logger = LoggerFactory.getLogger(UserJPAResource.class);
+
+	
 	@Autowired
 	UserService userS;
 	
@@ -30,6 +36,9 @@ public class UserJPAResource { //User controller
 	
 	@GetMapping
 	public List<User> retrieveAllUsers(){
+		
+		logger.trace("Current Users");
+		
 		 return  userR.findAll();
 	}
 	
@@ -42,11 +51,15 @@ public class UserJPAResource { //User controller
 
 	@PostMapping("/login")
     public User userLogin(@RequestBody User user) {
+		
+		logger.info(user.getUsername());
        return userS.userLogin(user.getUsername(), user.getPassword());
     } 
 	
 	@PostMapping("/register")
 	public User createUser( @RequestBody User user) {
+		
+//		logger.info(userS.register(user));
 		return userS.register(user);
 	}
 	

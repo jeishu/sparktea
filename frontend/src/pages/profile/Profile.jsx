@@ -10,6 +10,10 @@ export default function Profile() {
 
   let username = sessionStorage.getItem("Name");
 
+//   Get request by id ==> return first name
+// Need to access session storage to print first name
+
+
   useEffect(() => {
     axios.get(`http://localhost:7070/users/username/${username}`,)
       .then(response => {

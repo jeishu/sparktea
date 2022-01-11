@@ -3,7 +3,10 @@ package com.project.sparktea.entity;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
+import lombok.ToString;
 
 import java.util.Date;
 import java.util.Set;
@@ -23,9 +26,21 @@ public class Post {
 	
 	@Column(name = "dat")
     private String date;
+	
+	@Column(name = "username")
+	private String username;
+
+//	@Column(name="userid")
+//	private Integer client;
+//
+//	
+//	@ToString.Exclude
+//	@ManyToOne(fetch=FetchType.LAZY)
+//	@JsonIgnore
+//	private User user;
 
 	
-	
+
 	
 //	@Column(name = "comments")
 //    private Set<Comment> comments;
