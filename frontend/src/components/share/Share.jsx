@@ -6,28 +6,29 @@ import moment from "moment";
 export default function Share() {
   const [values, setValues] = useState({ contnt: "", dat: "" });
 
-  let userid = sessionStorage.getItem("userid");
+  let username = sessionStorage.getItem("Name");
+  let userID = sessionStorage.getItem("userID");
 
   let time = moment().format("MMM Do YYYY, h:mm a");
-  console.log(typeof time)
-
 
   const handleTextChange = (event) => {
     setValues({...values, contnt: event.target.value, dat: time});
-    console.log(values)
+    //console.log(values)
   }
 
   const registerTextData = () => {
     axios.post("http://localhost:7070/posts/create", {
       contnt: values.contnt,
       date: values.dat,
-      userid: {userid}
+      username: username,
+      userid: userID
     }).then(response => {
-      console.log(response.status)
+      //id from post is postid in comments
       console.log(response.data)
+      console.log(response.data.userid)
     }).catch(error => console.log(error))
       
-    window.location.reload(true);
+    // window.location.reload(true);
 
   }
 

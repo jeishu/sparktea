@@ -14,12 +14,14 @@ import CommentItem from "../comment/CommentItem";
 export default function Post() {
   const [posts, setPosts] = useState([]);
 
-  let userid = sessionStorage.getItem("userid");
+  let username = sessionStorage.getItem("Name");
+  let userID = sessionStorage.getItem("userID");
+  // console.log(userid)
 
   // const [comments, setComments] = useState({ contnt: "", dat: "" });
 
   let time = moment().format("h:mm a");
-  console.log(time)
+  //console.log(time)
 
   // const handleComment = (event) => {
   //   setComments({ contnt: event.target.value, dat: time });
@@ -58,7 +60,7 @@ export default function Post() {
     axios.get("http://localhost:7070/posts",)
       .then(response => {
         setPosts(response.data)
-        console.log(response.data)
+        //console.log(response.data)
       })
       .catch(err => console.log(err))
   }, [])
@@ -94,7 +96,7 @@ export default function Post() {
   return (
     <>
       <div className="post-container">
-        {posts.map(({ contnt, date, id, userid }) => (
+        {posts.map(({ contnt, date, id, username }) => (
           <div className="post" key={id}>
             {/* <div className="postWrapper">
               <div className="postTop"> */}
@@ -133,7 +135,7 @@ export default function Post() {
                 
               
               {/* <button onClick={commentData} className="commentButton">Comment</button> */}
-              <CommentItem itemDate={date} itemContnt={contnt} itemUserid={userid}/>
+              <CommentItem itemID={id} itemDate={date} itemContnt={contnt} itemUsername={username} itemUserID={userID}/>
           </div>
         ))}
     </div>
