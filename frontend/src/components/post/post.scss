@@ -7,7 +7,7 @@
 }
 
 .postWrapper {
-  padding: 20px;
+  padding: 15px;
 }
 
 .postTop {
@@ -15,28 +15,39 @@
   align-items: center;
   justify-content: space-between;
   
+  .post-top-con {
+    display: flex;
+    flex-direction: row;
+  }
   .date {
-    font-size: 14px;
-    border-bottom: 1px rgba(109, 109, 109, 0.207) solid;
-    width: 100%;
+    font-size: 12px;
     margin: 0 20px;
     padding-bottom: 10px;
   }
+  .username {
+    font-size: 12px;
+    margin: 0 20px;
+    padding-bottom: 10px;
+  }
+
+}
+.content {
+  border-bottom: 1px rgba(109, 109, 109, 0.207) solid;
+  border-top: 1px rgba(109, 109, 109, 0.207) solid;
+  margin: 0 auto;
+  padding: 10px 15px;
+  font-size: 15px;
 }
 
 .post-container{
   display: flex;
   flex-direction: column-reverse;
 }
-.content{
-  margin-top: 20px;
-  font-size: 14px;
-}
 
 .delete-button {
   cursor: pointer;
   border: none;
-  padding: 5px;
+  padding: 0 5px;
   border-radius: 5px;
   transition: all .2s ease-in-out;
   &:hover{

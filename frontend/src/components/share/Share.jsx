@@ -12,10 +12,7 @@ export default function Share() {
 
   let time = moment().format("MMM Do YYYY, h:mm a");
 
-  const handleTextChange = (event) => {
-    setValues({...values, contnt: event.target.value, dat: time});
-    //console.log(values)
-  }
+  const handleTextChange = (event) => {setValues({...values, contnt: event.target.value, dat: time})}
 
   const registerTextData = () => {
     axios.post("http://localhost:7070/posts/create", {
