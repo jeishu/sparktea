@@ -7,6 +7,7 @@ import {
   Routes
 } from "react-router-dom";
 import "./scss/index.scss";
+import Uploader from "./components/imageUploader/Uploader"
 
 function App() {
   

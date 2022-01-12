@@ -35,7 +35,9 @@ public class CommentJPAResource {
 
 	@PostMapping("/create")
 	public Comment createComment( @RequestBody Comment comment) {
+		System.out.println(comment);
 		return comS.createComment(comment);
+	
 	}
 
 	@DeleteMapping("/delete/id/{id}")

@@ -16,16 +16,24 @@ import java.util.Date;
 public class Comment {
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
 	@Column(name = "id")
     private Long id;
 	
-	@Column(name = "contnt")
-    private String content;
+	@Column
+    private String contnt;
 	
 	@Column(name = "dat")
     private String date;
+	
+	@Column(name = "username")
+	private String username;
 
+	@Column(name="userid")
+	private int userid;
+	
+	@Column(name="postid")
+	private int postid;
 
 //
 
