@@ -43,22 +43,10 @@ public class PostJPAResource {
 		return postS.createPost(post, id);
 	}
 	
-<<<<<<< HEAD
 	@DeleteMapping("/delete/{id}")
     public void deletePost(@PathVariable Long id) {
          postS.deleteById(id);
     }
 
-=======
-	@DeleteMapping("/delete/id/{id}")
-	public String deletePost( @RequestParam Long id) {	
-		return postS.deletePost(id);
-	}
-	
-	@GetMapping("/username/{username}")
-	public Post getPostbyUsername(@PathVariable String username) {
-		return postS.getPostByUsername(username);
-	}
->>>>>>> 73a94cd6592f8193e34b5ee54de87a6eb7e7b124
 }
 
