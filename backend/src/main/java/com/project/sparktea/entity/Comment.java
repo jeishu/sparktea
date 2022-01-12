@@ -25,7 +25,15 @@ public class Comment {
 	
 	@Column(name = "dat")
     private String date;
+	
+	@Column(name = "username")
+	private String username;
 
+	@Column(name="userid")
+	private int userid;
+	
+	@Column(name="postid")
+	private int postid;
 
 //
 

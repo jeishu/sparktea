@@ -30,8 +30,8 @@ public class Post {
 	@Column(name = "username")
 	private String username;
 
-//	@Column(name="userid")
-//	private Integer client;
+	@Column(name="userid")
+	private int userid;
 //
 //	
 //	@ToString.Exclude

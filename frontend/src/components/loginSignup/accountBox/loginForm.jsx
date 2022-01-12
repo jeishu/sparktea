@@ -11,6 +11,7 @@ import {
 } from "./common";
 import { Marginer } from "../marginer/Marginer";
 import { AccountContext } from "./accountContext";
+import { RestoreTwoTone } from "@material-ui/icons";
 
 export function LoginForm(props) {
   const { switchToSignup } = useContext(AccountContext);
@@ -22,6 +23,7 @@ export function LoginForm(props) {
     password: ''
   });
   const [name, setName] = useState("");
+
   let navigate = useNavigate();
 
   const handleUsername = (event) => {
@@ -32,10 +34,15 @@ export function LoginForm(props) {
   const handlePassword = (event) => {setValues({ ...values, password: event.target.value })};
 
   function loginFormData() {
+    var userID = 0;
     axios.post('http://localhost:7070/users/login', {
       username: values.username,
       password: values.password
-    }).then(res => {
+    }).then(res => { 
+        console.log(res.data)
+        // setUserID(res.data.userId);
+        userID = res.data.userId;
+        console.log(userID)
         redirectToHome(res.status);
         sessionStorageSetItem();
         //console.log(name)
@@ -45,7 +52,10 @@ export function LoginForm(props) {
       if (status === 200) navigate("/");
       else navigate("/login-register");
     }
-    const sessionStorageSetItem = () => {sessionStorage.setItem("Name", name);}
+    const sessionStorageSetItem = () => {
+      sessionStorage.setItem("userID", userID);
+      sessionStorage.setItem("Name", name);
+    }
   }
 
   return (

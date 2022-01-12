@@ -6,18 +6,22 @@ import moment from "moment";
 export default function CommentItem(props) {
   const [postComments, setPostComments] = useState({ contnt: "", dat: "" });
 
+  let username = sessionStorage.getItem("Name");  
+  let userID = sessionStorage.getItem("userID");
+
   let time = moment().format("h:mm a");
-  console.log(time)
+  //console.log(time)
 
-  const handleComment = (event) => {
-    setPostComments({ contnt: event.target.value, dat: time });
-    //   console.log(postComments)
-  }
+  const handleComment = (event) => {setPostComments({ contnt: event.target.value, dat: time })}
 
+  //Comment information
   const commentData = () => {
     axios.post("http://localhost:7070/comments/create", {
       contnt: postComments.contnt,
-      date: time
+      date: time,
+      username: username,
+      userid: userID,
+      postid: props.itemID
     }).then(response => {
       console.log(response.status)
       console.log(response.data)
@@ -27,26 +31,26 @@ export default function CommentItem(props) {
     // console.log(postComments);
   }
 
-  const postAuthor = () => {
-    axios.get(`http://localhost:7070/users/userid/${props.itemUserid}`,)
-
+  //Getting all comments
+  useEffect(() => {
+    axios.get("http://localhost:7070/comments",)
       .then(response => {
-        return (response.data.username);
-
+        setPostComments(response.data)
+        //console.log(response.data)
       })
       .catch(err => console.log(err))
-  }
-  console.log(props.itemUserid)
-  console.log(props.username)
+  }, [])
+
 
   return (
 
     <>
       <div className="postWrapper">
         <div className="postTop">
+
           <p className="content">{props.itemContnt}</p>
           <p className="date">{props.itemDate}</p>
-          <p className="username">{postAuthor}</p>
+          <p className="username">{props.itemUsername}</p>
         </div>
       </div>
 
@@ -58,7 +62,6 @@ export default function CommentItem(props) {
       />
 
       <button onClick={commentData} className="commentButton">Comment</button>
-
     </>
 
   )
