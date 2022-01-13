@@ -44,16 +44,23 @@ public class UserService {
     }
 
 
-	public void updateUser(String username, String firstName, String lastName, 
-			String email, String dob, String gender) {
-		User u = repo.findByUsername(username);
-		u.setUsername(username);
-		u.setFirstName(firstName);
-		u.setLastName(lastName);
-		u.setEmail(email);
-		u.setDOB(dob);
-		u.setGender(gender);
+	public String updateUser(User user) {
+		User u = repo.findByUsername(user.getUsername());
+		//u.setUsername(user.getUsername());
+		u.setFirstName(user.getFirstName());
+		u.setLastName(user.getLastName());
+		u.setEmail(user.getEmail());
+		u.setDOB(user.getDOB());
+		u.setGender(user.getGender());
+		repo.save(u); //needed for updates
+		return u.toString();
+	}
+
+	public String updateProfilePic(User user) {
+		User u = repo.findByUsername(user.getUsername());
+		u.setProfilepic(user.getProfilepic());
 		repo.save(u);
+		return null;
 	}
         
 //    public Following follow(Long userId, Long followId) throws Exception {

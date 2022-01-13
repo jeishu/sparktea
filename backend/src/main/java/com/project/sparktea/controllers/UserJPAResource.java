@@ -28,7 +28,6 @@ public class UserJPAResource { //User controller
 	
 	static Logger logger = LoggerFactory.getLogger(UserJPAResource.class);
 
-	
 	@Autowired
 	UserService userS;
 	
@@ -37,10 +36,8 @@ public class UserJPAResource { //User controller
 	
 	@GetMapping
 	public List<User> retrieveAllUsers(){
-		
 		logger.trace("Current Users");
-		
-		 return  userR.findAll();
+		return  userR.findAll();
 	}
 	
 	@GetMapping("/addtest")
@@ -52,14 +49,12 @@ public class UserJPAResource { //User controller
 
 	@PostMapping("/login")
     public User userLogin(@RequestBody User user) {
-		
 		logger.info(user.getUsername());
-       return userS.userLogin(user.getUsername(), user.getPassword());
+		return userS.userLogin(user.getUsername(), user.getPassword());
     } 
 	
 	@PostMapping("/register")
 	public User createUser( @RequestBody User user) {
-		
 //		logger.info(userS.register(user));
 		return userS.register(user);
 	}
@@ -74,15 +69,14 @@ public class UserJPAResource { //User controller
 		return userS.getUserByUsername(username);
 	}
 	
-	@PutMapping("/update/{username}")
-	public void updateUserInfo(@PathVariable String username) {
-		User newUser = new User();
-		 userS.updateUser(newUser.getUsername(),
-						 newUser.getFirstName(), 
-						 newUser.getLastName(),
-						 newUser.getEmail(),
-						 newUser.getDOB(),
-						 newUser.getGender());
+	@PutMapping("/update/")
+	public String updateUserInfo(@RequestBody User user) {
+		return userS.updateUser(user);
+	}
+	
+	@PutMapping("/update/profilepic")
+	public String updateProfilePic(@RequestBody User user) {
+		return userS.updateProfilePic(user);
 	}
 	
 }
