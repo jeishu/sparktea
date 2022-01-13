@@ -19,10 +19,9 @@ const Uploader = () => {
         // GET REQUEST : PRESIGNED URL
         const response = await axios({
             method: 'GET',
-            url: API_ENDPOINT
+            url: API_ENDPOINT,
         })
         console.log('Response: ', response)
-        setProfile("https://sparktea-bucket.s3.us-east-2.amazonaws.com/"+response.data.Key)
 
         // PUT REQUEST : UPLOAD FILE TO S3
         const result = await fetch(response.data.uploadURL, {
@@ -32,9 +31,11 @@ const Uploader = () => {
             },
             body: f['file']
         })
+        
+        await setProfile("https://sparktea-bucket.s3.us-east-2.amazonaws.com/"+response.data.Key)
         console.log('Result: ', result)
         console.log(profile)
-        sessionStorage.setItem("Picture", profile);
+        await sessionStorage.setItem("Picture", profile);
         // window.location.reload(true);
     }
 
