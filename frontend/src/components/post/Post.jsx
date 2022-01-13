@@ -1,10 +1,29 @@
 import "./post.scss";
+import React, { Fragment } from 'react'
 import { useState, useEffect } from "react";
 import axios from "axios";
+import ReadOnlyPost from "./ReadOnlyPost";
+import EditablePost from "./EditablePost";
+
 
 //{post}
 export default function Post() {
   const [posts, setPosts] = useState([]);
+  const [addPostData, setAddPostData] = useState({ content: "", date: "" });
+  const [editPostData, setEditPostData] = useState({ content: "" });
+  const [editPostId, setEditPostId] = useState(null);
+  const handleAddPostChange = (event) => {
+    event.preventDefault();
+    const fieldName = event.target.getAttribute('name')
+    const fieldValue = event.target.value;
+    const newPostData = { ...addPostData};
+     newPostData[fieldName] = fieldValue;
+     setAddPostData(newPostData);
+  
+  }
+  
+
+
 
   useEffect(() => {
     axios.get("http://localhost:7070/posts",)
@@ -14,34 +33,51 @@ export default function Post() {
       .catch(err => console.log(err))
   }, [])
 
-function deleteTextData(id){
-  axios.delete(`http://localhost:7070/posts/delete/${id}`)
 
-  .then(response => {
-    console.log(response.status)
-    console.log(response.data)
-  }).catch(error => console.log(error))
-    
-  window.location.reload(true);
+
+const handleEditClick = (event, content,id,date)=>{
+  event.preventDefault();
+
+  setEditPostId(id)
+
+  const editPostValues = {
+    content: content,
+    date: date
+  
+  
+  }
+  setEditPostData(editPostValues);
   
 }
+const handleEditPostChange= (event) =>{
+  event.preventDefault();
+
+  const fieldName = event.target.getAttribute("name");
+  const fieldValue = event.target.value;
+
+  const newPostData = {...editPostData};
+  newPostData[fieldName] = fieldValue;
+setEditPostData(newPostData);
+}
+
 
 
   return (
     <>
       <div className="post-container">
-        {posts.map(({ content, date, id }) => (
-          <div className="post" key={id}>
-            <div className="postWrapper">
-              <div className="postTop">
-                <p className="content">{content}</p>
-                <p className="date">{date}</p>
-                <button className="deleteButton" onClick={()=> deleteTextData(id)}>Delete</button>
-              </div>
-            </div>
-          </div>
+        {posts.map(({ content, date, id }) => ( 
+       
+        <Fragment >
+{editPostId === id ? (
+<EditablePost editPostData={editPostData } handleEditPostChange={handleEditPostChange}/> 
+):
+( <ReadOnlyPost id={id} date={date} content={content} posts={posts} handleEditClick={handleEditClick}/>
+)}
+         </Fragment>
+
         ))}
       </div>
+      
     </>
   );
 }

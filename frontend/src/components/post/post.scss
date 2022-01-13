@@ -36,4 +36,19 @@
   margin-right: 20px;
   cursor: pointer;
   color: white;
+
+  justify-content: space-between;
+} 
+.editButton{
+  border: none;
+  padding: 2px;
+  border-radius: 5px;
+  background-color: lightblue;
+  font-weight: 300;
+  margin-right: 20px;
+  cursor: pointer;
+
+  color: white;
+  align-items: right;
+  justify-content: space-between;
 } 
