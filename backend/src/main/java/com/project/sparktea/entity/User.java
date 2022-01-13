@@ -9,7 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Data
 @NoArgsConstructor
@@ -18,7 +20,7 @@ import lombok.NoArgsConstructor;
 public class User {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int userId;
 
@@ -45,6 +47,9 @@ public class User {
 
 	@Column(name = "dob")
 	private String DOB;
+	
+	@Column
+	private String profilepic;
 
 	public User(String userRole, String email, String firstName, String lastName, String username, String password, String gender, String dOB) {
 		super();

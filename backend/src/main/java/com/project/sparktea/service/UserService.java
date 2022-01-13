@@ -43,7 +43,25 @@ public class UserService {
 		return u;
     }
 
-    
+
+	public String updateUser(User user) {
+		User u = repo.findByUsername(user.getUsername());
+		//u.setUsername(user.getUsername());
+		u.setFirstName(user.getFirstName());
+		u.setLastName(user.getLastName());
+		u.setEmail(user.getEmail());
+		u.setDOB(user.getDOB());
+		u.setGender(user.getGender());
+		repo.save(u); //needed for updates
+		return u.toString();
+	}
+
+	public String updateProfilePic(User user) {
+		User u = repo.findByUsername(user.getUsername());
+		u.setProfilepic(user.getProfilepic());
+		repo.save(u);
+		return null;
+	}
         
 //    public Following follow(Long userId, Long followId) throws Exception {
 //        User user = repo.findOne(userId);

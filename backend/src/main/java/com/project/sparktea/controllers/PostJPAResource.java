@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.sparktea.entity.Post;
+import com.project.sparktea.entity.User;
 import com.project.sparktea.service.PostService;
 
 import org.springframework.web.bind.annotation.RequestBody;
@@ -41,11 +42,6 @@ public class PostJPAResource {
 		System.out.println(post);
 		return postS.createPost(post, id);
 	}
-	
-//	@DeleteMapping("/delete/{id}")
-//	public String deletePost( @PathVariable Long id) {	
-//		return postS.deletePost(id);
-//	}
 	
 	@DeleteMapping("/delete/{id}")
     public void deletePost(@PathVariable Long id) {

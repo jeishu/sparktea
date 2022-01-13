@@ -11,6 +11,7 @@ import {
 } from "./common";
 import { Marginer } from "../marginer/Marginer";
 import { AccountContext } from "./accountContext";
+import { RestoreTwoTone } from "@material-ui/icons";
 
 export function LoginForm(props) {
   const { switchToSignup } = useContext(AccountContext);
@@ -21,9 +22,8 @@ export function LoginForm(props) {
     username: '',
     password: ''
   });
-  console.log("Before Axios:"+ values.username)
+  const [name, setName] = useState("");
 
-  const [name, setName] = useState(""); // session storage
   let navigate = useNavigate();
 
   const handleUsername = (event) => {
@@ -34,11 +34,16 @@ export function LoginForm(props) {
   const handlePassword = (event) => {setValues({ ...values, password: event.target.value })};
 
   function loginFormData() {
+    var userID = 0;
     axios.post('http://localhost:7070/users/login', {
       ...setValues,
       username: values.username,
       password: values.password
-    }).then(res => {
+    }).then(res => { 
+        console.log(res.data)
+        // setUserID(res.data.userId);
+        userID = res.data.userId;
+        console.log(userID)
         redirectToHome(res.status);
         sessionStorageSetItem();
         console.log("Inside Axios:"+ values.username)
@@ -48,7 +53,10 @@ export function LoginForm(props) {
       if (status === 200) navigate("/home");
       else navigate("/");
     }
-    const sessionStorageSetItem = () => {sessionStorage.setItem("Name", name);}
+    const sessionStorageSetItem = () => {
+      sessionStorage.setItem("userID", userID);
+      sessionStorage.setItem("Name", name);
+    }
   }
   console.log("Outside Axios:" + values.username)
 

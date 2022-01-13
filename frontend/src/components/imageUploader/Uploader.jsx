@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import 'react-dropzone-uploader/dist/styles.css'
 import Dropzone from 'react-dropzone-uploader'
 import axios from 'axios'
 import "./uploader.scss";
 
 const Uploader = () => {
+    const [profile, setProfile] = useState("");
+    
     const API_ENDPOINT = "https://kicko26hfd.execute-api.us-east-2.amazonaws.com/default/getPresignedImageURL"
   
     const handleChangeStatus = ({ meta }, status) => {
@@ -20,6 +22,7 @@ const Uploader = () => {
             url: API_ENDPOINT
         })
         console.log('Response: ', response)
+        setProfile("https://sparktea-bucket.s3.us-east-2.amazonaws.com/"+response.data.Key)
 
         // PUT REQUEST : UPLOAD FILE TO S3
         const result = await fetch(response.data.uploadURL, {
@@ -30,6 +33,9 @@ const Uploader = () => {
             body: f['file']
         })
         console.log('Result: ', result)
+        console.log(profile)
+        sessionStorage.setItem("Picture", profile);
+        // window.location.reload(true);
     }
 
     return (
@@ -40,9 +46,9 @@ const Uploader = () => {
             maxFiles={1}
             multiple={false}
             canCancel={false}
-            inputContent="Upload a new profile picture"
+            inputContent=""
             styles={{
-                dropzone: { width: 300, height: 100 },
+                dropzone: { width: 300, height: 300 },
                 dropzoneActive: { borderColor: 'green' },
             }}
             />
