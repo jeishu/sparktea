@@ -19,7 +19,6 @@
   .logo {
     font-size: 12px;
     display: none;
-    
   
     @media only screen and (min-width: 400px) {
       font-size: 20px;
@@ -51,6 +50,7 @@
   justify-content: flex-end;
   color: white;
   margin-right: 50px;
+  overflow-x: hidden;
   .topbarLink {
     margin-right: 30px;
     font-size: 12px;
@@ -103,5 +103,9 @@
   height: 32px;
   border-radius: 50%;
   object-fit: cover;
+  display: none;
   cursor: pointer;
+  @media only screen and (min-width: 400px) {
+    display: block;
+  }
 }
