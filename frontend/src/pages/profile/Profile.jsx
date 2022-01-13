@@ -6,9 +6,9 @@ import axios from "axios";
 import Boy from "./boy.png";
 import BG from "./3.png";
 
-
 export default function Profile() {
   const [profi, setProfi] = useState([]);
+  const [updateProfile, setUpdateProfile] = useState(true);
   const [update, setUpdate] = useState({
     firstName: '',
     lastName: '',
@@ -21,9 +21,7 @@ export default function Profile() {
 
   let username = sessionStorage.getItem("Name");
 
-//   Get request by id ==> return first name
-// Need to access session storage to print first name
-
+  const updateDiv = () => setUpdateProfile(!updateProfile);
 
   useEffect(() => {
     axios.get(`http://localhost:7070/users/username/${username}`,)
@@ -35,21 +33,17 @@ export default function Profile() {
 
   //Update(put) request for updating user profile
   const handleUpdateUser = () => {
-    axios.put(`http://localhost:7070/users/update/${username}`,{
+    axios.put(`http://localhost:7070/users/update/`, {
       ...setUpdate,
       firstName: '',
       lastName: '',
-      username: '',
       email: '',
       dob: '',
       gender: ''
     })
-    .then(response => {
-
-      })
-    .catch(err => console.log(err))
+      .then(response => { })
+      .catch(err => console.log(err))
   }
-
 
   return (
     <>
@@ -71,21 +65,31 @@ export default function Profile() {
               <div className="profiWrapper">
                 <div className="profiTop">
                   <h3>Profile Information</h3>
-                  <p>First Name: <span>{profi.firstName}</span> </p>
-                  <p>Last Name: <span>{profi.lastName}</span></p>
-                  <p>Username: <span>{profi.username}</span></p>
-                  <p>Email: <span>{profi.email}</span></p>
-                  <p>Gender: <span>{profi.gender}</span></p>
-                  <p>DOB: <span>{profi.dob}</span></p>
-                  <button className="edit-profile-button">Edit Profile</button>
+                  <div>
+                    <button onClick={updateDiv}>Update Profile</button>
+                    {updateProfile ?
+                      <div>
+                        <p>First Name: <span>{profi.firstName}</span> </p>
+                        <p>Last Name: <span>{profi.lastName}</span></p>
+                        <p>Username: <span>{profi.username}</span></p>
+                        <p>Email: <span>{profi.email}</span></p>
+                        <p>Gender: <span>{profi.gender}</span></p>
+                        <p>DOB: <span>{profi.dob}</span></p>
+                      </div> :
+                      <div>
+                        <form>
+                          {/* <input type="text" value={update.firstName} onChange={e => } />
+                          <input type="text" value={update.lastName} onChange={e => }/> */}
+                        </form>
+                      </div>}
+                  </div>
                 </div>
-                <Uploader/>
+
+                <Uploader />
               </div>
             </div>
             <div>
-              <form>
-                <input type="text" value={update.firstName} onChange={e => setUpdate()} />
-              </form>
+
             </div>
           </div>
         </div>

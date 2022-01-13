@@ -3,9 +3,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import moment from "moment";
 import "./comment.scss"
+import Comment from './Comment';
 
 export default function CommentItem(props) {
   const [postComments, setPostComments] = useState({ contnt: "", dat: "" });
+  const [showComments, setShowComments] = useState(true);
 
   let username = sessionStorage.getItem("Name");
   let userID = sessionStorage.getItem("userID");
@@ -14,6 +16,7 @@ export default function CommentItem(props) {
   //console.log(time)
 
   const handleComment = (event) => { setPostComments({ contnt: event.target.value, dat: time }) }
+  const handleShowComment = () => setShowComments(!showComments);
 
   //Comment information
   const commentData = () => {
@@ -43,16 +46,24 @@ export default function CommentItem(props) {
 
   return (
     <>
-      <div className="comment-container">
-        <input
-          placeholder="What's your sparking comment?"
-          className="comment-input"
-          value={postComments.contnt}
-          onChange={handleComment}
-        />
-        <button onClick={commentData} className="comment-button">Comment</button>
-      </div>
+      <button className='comment-hide' onClick={handleShowComment}>Comment some tea?</button>
+      {showComments ? <></> :
+        <div>
+          <div className="comment-container">
+            <input
+              placeholder="What's your sparking comment?"
+              className="comment-input"
+              value={postComments.contnt}
+              onChange={handleComment}
+            />
+            <button onClick={commentData} className="comment-button">Comment</button>
+          </div>
 
+          <Comment postId={props.itemID} />
+
+        </div>
+
+      }
     </>
   )
 }

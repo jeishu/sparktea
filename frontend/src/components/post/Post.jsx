@@ -44,7 +44,7 @@ export default function Post() {
               </div>
               <p className="content">{contnt}</p>
             </div>
-            <CommentItem itemID={id} itemDate={date} itemContnt={contnt} itemUsername={username} itemUserID={userID} />
+            <CommentItem itemID={id} />
           </div>
         ))}
       </div>
