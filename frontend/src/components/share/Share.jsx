@@ -1,4 +1,4 @@
-import "./share.css";
+import "./share.scss";
 import { useState } from "react";
 import axios from "axios";
 import moment from "moment";

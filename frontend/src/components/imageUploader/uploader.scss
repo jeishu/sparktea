@@ -2,16 +2,21 @@
     //do things for dropzone
 }
 .dzu-dropzone {
-    width: 300px !important;
-    height: 200px !important;
-    border: none !important;
+    width: 150px !important;
+    height: 150px !important;
     overflow: hidden;
-    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 153px;
+    border-radius: 50%;
+    border: 3px solid white !important;
     -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
     box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
     transition: all .5s ease-in-out;
     &:hover{
-        background-color: gray;
+        background-color: rgba(155, 155, 155, 0.611);
         .dzu-inputLabel{
             color: white !important;
         }
