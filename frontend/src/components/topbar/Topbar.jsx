@@ -18,8 +18,6 @@ export default function Topbar() {
         <img className="logo-image" src={Logo} alt={Logo} />
         <Link className="logo" to="/home">SparkTea</Link>
       </div>
-      <div className="topbarCenter">
-      </div>
       <div className="topbarRight">
         <div className="topbarLinks">
           <Link className={location.pathname === "/home" ? "active" : "non-active"} to="/home">HOME</Link>
